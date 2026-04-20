@@ -4,29 +4,1039 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aadhaya Hardware — Premium Locks, Handles & Architectural Fittings. Manufacturer based in Rajkot, Gujarat. Dealer & Distributor enquiries welcome.">
-  <meta name="keywords" content="hardware fittings, door handles, cabinet handles, mortise locks, premium hardware, Rajkot, Gujarat, architectural hardware, dealer wholesale">
+  <meta name="keywords" content="hardware fittings, door handles, cabinet handles, mortise locks, premium hardware, Rajkot, Gujarat, architectural hardware">
   <title>Aadhaya Hardware | Premium Locks & Fittings — Rajkot, Gujarat</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙</text></svg>">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-1: #09080a;
+      --bg-2: #0f0e12;
+      --text-1: #f2f0ed;
+      --text-2: #b8b6b2;
+      --text-3: #7d7b77;
+      --gold: #c99a4f;
+      --gold-dark: #a17a35;
+      --outline-color: rgba(201, 154, 79, 0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: var(--bg-1);
+      color: var(--text-1);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 40px;
+      background: rgba(9, 8, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201, 154, 79, 0.1);
+    }
+
+    .nav-brand {
+      text-decoration: none;
+      color: var(--text-1);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-brand-name {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .nav-brand-name span {
+      color: var(--gold);
+    }
+
+    .nav-brand-tagline {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--text-3);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-1);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 10px 20px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      background: transparent;
+      cursor: pointer;
+      display: none;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--bg-1);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .nav-hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--gold);
+      transition: all 0.4s ease-out;
+      display: block;
+    }
+
+    .nav-hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(10px, 10px);
+    }
+
+    .nav-hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .nav-mobile {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(9, 8, 10, 0.99);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      padding: 80px 40px 40px;
+      overflow-y: auto;
+    }
+
+    .nav-mobile.active {
+      display: flex !important;
+    }
+
+    .nav-mobile-close {
+      position: absolute;
+      top: 28px;
+      right: 40px;
+      background: none;
+      border: none;
+      color: var(--text-1);
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .nav-mobile-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .nav-mobile-links a {
+      text-decoration: none;
+      color: var(--text-1);
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-mobile-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-mobile-cta {
+      margin-top: auto;
+      padding-top: 30px;
+      border-top: 1px solid rgba(201, 154, 79, 0.1);
+    }
+
+    .nav-mobile-cta a {
+      display: block;
+      padding: 12px 24px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .nav-mobile-cta a:hover {
+      background: var(--gold);
+      color: var(--bg-1);
+    }
+
+    /* HERO */
+    .hero {
+      margin-top: 80px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(9,8,10,0.8), rgba(15,14,18,0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23c99a4f" opacity="0.05" width="1200" height="800"/></svg>');
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .hero-overline {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 30px;
+    }
+
+    .hero-h1 {
+      font-size: 80px;
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--gold);
+      display: block;
+      font-size: 72px;
+    }
+
+    .hero-h1 .outline {
+      border: 2px solid var(--outline-color);
+      padding: 10px 20px;
+      display: inline-block;
+      font-style: italic;
+    }
+
+    .hero-divider {
+      margin: 40px 0;
+      padding: 20px 0;
+      border-top: 1px solid rgba(201, 154, 79, 0.2);
+      border-bottom: 1px solid rgba(201, 154, 79, 0.2);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-2);
+      margin-bottom: 40px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary, .btn-ghost, .btn-wa {
+      padding: 14px 32px;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--bg-1);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+    }
+
+    .btn-ghost:hover, .btn-wa:hover {
+      background: var(--gold);
+      color: var(--bg-1);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 30px;
+      background: var(--text-3);
+      animation: scroll-animate 2s infinite;
+    }
+
+    @keyframes scroll-animate {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    /* MARQUEE */
+    .marquee-strip {
+      background: rgba(201, 154, 79, 0.05);
+      border-top: 1px solid rgba(201, 154, 79, 0.1);
+      border-bottom: 1px solid rgba(201, 154, 79, 0.1);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 40px;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-item, .marquee-sep {
+      display: inline-block;
+    }
+
+    .marquee-sep {
+      color: var(--gold);
+      margin: 0 20px;
+    }
+
+    /* STATS */
+    .stats-band {
+      padding: 60px 40px;
+      background: var(--bg-2);
+      border-top: 1px solid rgba(201, 154, 79, 0.1);
+      border-bottom: 1px solid rgba(201, 154, 79, 0.1);
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .stat-lbl {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    /* JOURNEY SECTION */
+    .journey-section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .journey-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .journey-text h3 {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+
+    .journey-text p {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .journey-visual {
+      height: 400px;
+      background: linear-gradient(135deg, rgba(201,154,79,0.1), rgba(201,154,79,0.05));
+      border: 1px solid rgba(201, 154, 79, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 120px;
+      opacity: 0.8;
+    }
+
+    .journey-alt {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .journey-alt .journey-visual {
+      order: -1;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-dark {
+      background: var(--bg-2);
+    }
+
+    .section-title, .display-title {
+      font-size: 60px;
+      font-weight: 300;
+      margin-bottom: 30px;
+      line-height: 1.1;
+    }
+
+    .display-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 15px;
+    }
+
+    .gold-line {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 20px 0 30px;
+    }
+
+    .body-text {
+      font-size: 16px;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    /* COLLECTIONS GRID */
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .collection-card {
+      border: 1px solid rgba(201, 154, 79, 0.2);
+      overflow: hidden;
+      transition: all 0.3s;
+      background: rgba(201, 154, 79, 0.02);
+    }
+
+    .collection-card:hover {
+      border-color: var(--gold);
+      background: rgba(201, 154, 79, 0.08);
+      transform: translateY(-10px);
+    }
+
+    .collection-image {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, rgba(201,154,79,0.15), rgba(201,154,79,0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      border-bottom: 1px solid rgba(201, 154, 79, 0.1);
+    }
+
+    .collection-content {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .collection-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-1);
+      margin-bottom: 10px;
+    }
+
+    .collection-desc {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    /* TEAM SECTION */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .team-member {
+      text-align: center;
+    }
+
+    .member-avatar {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, rgba(201,154,79,0.2), rgba(201,154,79,0.1));
+      border: 2px solid rgba(201, 154, 79, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+
+    .member-name {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-1);
+      margin-bottom: 5px;
+    }
+
+    .member-role {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .member-bio {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .testimonial-card {
+      background: rgba(201, 154, 79, 0.05);
+      border: 1px solid rgba(201, 154, 79, 0.2);
+      padding: 30px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--bg-1);
+      font-size: 18px;
+    }
+
+    .testimonial-info {
+      text-align: left;
+    }
+
+    .testimonial-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-1);
+    }
+
+    .testimonial-company {
+      font-size: 11px;
+      color: var(--text-3);
+    }
+
+    /* BLOG GRID */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .blog-card {
+      border: 1px solid rgba(201, 154, 79, 0.2);
+      background: rgba(201, 154, 79, 0.02);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .blog-card:hover {
+      border-color: var(--gold);
+      background: rgba(201, 154, 79, 0.08);
+      transform: translateY(-5px);
+    }
+
+    .blog-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, rgba(201,154,79,0.15), rgba(201,154,79,0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      border-bottom: 1px solid rgba(201, 154, 79, 0.1);
+    }
+
+    .blog-content {
+      padding: 25px;
+    }
+
+    .blog-category {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .blog-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-1);
+      margin-bottom: 10px;
+    }
+
+    .blog-excerpt {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    /* NEWSLETTER */
+    .newsletter-section {
+      background: rgba(201, 154, 79, 0.08);
+      border: 1px solid rgba(201, 154, 79, 0.2);
+      padding: 60px 40px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .newsletter-title {
+      font-size: 36px;
+      font-weight: 300;
+      margin-bottom: 15px;
+    }
+
+    .newsletter-desc {
+      font-size: 14px;
+      color: var(--text-2);
+      margin-bottom: 30px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      min-width: 250px;
+      padding: 12px;
+      background: rgba(9, 8, 10, 0.5);
+      border: 1px solid rgba(201, 154, 79, 0.2);
+      color: var(--text-1);
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .newsletter-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(9, 8, 10, 0.8);
+    }
+
+    .newsletter-btn {
+      padding: 12px 30px;
+      background: var(--gold);
+      color: var(--bg-1);
+      border: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .newsletter-btn:hover {
+      background: var(--gold-dark);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-2);
+      border-top: 1px solid rgba(201, 154, 79, 0.1);
+      padding: 60px 40px 30px;
+    }
+
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 60px;
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(201, 154, 79, 0.1);
+    }
+
+    .footer-col-title {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 20px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links-list a {
+      color: var(--text-2);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--text-3);
+      text-transform: uppercase;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(201, 154, 79, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 18px;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background: var(--gold);
+      color: var(--bg-1);
+    }
+
+    /* FORMS */
+    .contact-form, .newsletter-form {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      background: rgba(9, 8, 10, 0.5);
+      border: 1px solid rgba(201, 154, 79, 0.2);
+      color: var(--text-1);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(9, 8, 10, 0.8);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--gold);
+      color: var(--bg-1);
+      border: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold-dark);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      #nav {
+        padding: 16px 20px;
+      }
+
+      .nav-brand-name {
+        font-size: 16px;
+      }
+
+      .nav-links {
+        display: none !important;
+      }
+
+      .nav-cta {
+        display: none !important;
+      }
+
+      .nav-hamburger {
+        display: flex !important;
+      }
+
+      .hero {
+        margin-top: 60px;
+        padding: 40px 20px;
+        min-height: auto;
+      }
+
+      .hero-h1 {
+        font-size: 36px;
+      }
+
+      .hero-h1 em {
+        font-size: 32px;
+      }
+
+      .section, .journey-section {
+        padding: 40px 20px;
+      }
+
+      .journey-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .journey-alt {
+        grid-template-columns: 1fr;
+      }
+
+      .journey-alt .journey-visual {
+        order: 0;
+      }
+
+      .collections-grid, .team-grid, .testimonials-grid, .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .display-title {
+        font-size: 36px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-input {
+        min-width: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- CURSOR -->
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-
-<!-- MOBILE NAV OVERLAY -->
-<nav class="nav-mobile">
-  <button class="nav-mobile-close" style="position:absolute;top:28px;right:6%;background:none;border:none;color:var(--text-1);font-size:28px;cursor:pointer;font-family:'Cormorant Garamond',serif;">✕</button>
+<!-- MOBILE NAV -->
+<nav class="nav-mobile" id="navMobile">
+  <button class="nav-mobile-close" id="navClose">✕</button>
   <ul class="nav-mobile-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#catalogues">Catalogues</a></li>
-    <li><a href="#dealer">Become Dealer</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-mobile-cta">
-    <a href="https://wa.me/918153888813" class="btn-wa">💬 WhatsApp Us</a>
+    <a href="https://wa.me/918153888813">💬 WhatsApp Us</a>
   </div>
 </nav>
 
@@ -37,50 +1047,38 @@
     <div class="nav-brand-tagline">Premium Locks & Fittings · Rajkot</div>
   </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#catalogues">Catalogues</a></li>
-    <li><a href="#dealer">Become Dealer</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="https://wa.me/918153888813" class="nav-cta" target="_blank">💬 WhatsApp Enquiry</a>
-  <div class="nav-hamburger" role="button" aria-label="Open menu">
+  <a href="https://wa.me/918153888813" class="nav-cta" target="_blank">💬 WhatsApp</a>
+  <div class="nav-hamburger" id="navHamburger">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- ================================================
-     HERO
-================================================ -->
+<!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg-pattern"></div>
-  <div class="hero-grid-lines"></div>
-  <div class="hero-glow"></div>
-
   <div class="hero-content">
-    <div class="hero-overline">Rajkot, Gujarat · Est. Manufacturing Excellence</div>
-
+    <div class="hero-overline">From Present • Building Future</div>
     <h1 class="hero-h1">
       Premium<br>
       <em>Locks &</em><br>
       <span class="outline">Fittings</span>
     </h1>
-
-    <div class="hero-divider">
-      <span>Crafted for Modern Spaces</span>
-    </div>
-
+    <div class="hero-divider"><span>Crafted for Modern Spaces</span></div>
     <p class="hero-sub">
-      Elegant hardware fittings engineered for architects, interior designers, dealers, and premium residential &amp; commercial projects across India.
+      Elegant hardware fittings engineered for architects, interior designers, dealers, and premium residential & commercial projects across India.
     </p>
-
     <div class="hero-actions">
-      <a href="#catalogues" class="btn-primary"><span>📄 View Catalogue</span></a>
-      <a href="#dealer" class="btn-ghost">Become a Dealer →</a>
-      <a href="https://wa.me/918153888813?text=Hello%20Aadhaya%20Hardware!%20I%20want%20to%20enquire%20about%20your%20products." class="btn-wa" target="_blank">💬 WhatsApp Us</a>
+      <a href="#collections" class="btn-primary">View Collections</a>
+      <a href="#contact" class="btn-ghost">Get Started →</a>
+      <a href="https://wa.me/918153888813" class="btn-wa" target="_blank">💬 WhatsApp</a>
     </div>
   </div>
-
   <div class="hero-scroll">
     <span>Scroll</span>
     <div class="scroll-line"></div>
@@ -90,619 +1088,393 @@
 <!-- MARQUEE -->
 <div class="marquee-strip">
   <div class="marquee-track">
-    <div class="marquee-item">Mortise Handles <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Door Handles <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Cabinet Handles <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Knobs & Pulls <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">SS Mortise Locks <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Zinc Alloy Fittings <span class="marquee-sep">◆</span></div>
+    <div class="marquee-item">Zinc Alloy Handles <span class="marquee-sep">◆</span></div>
+    <div class="marquee-item">SS Door Handles <span class="marquee-sep">◆</span></div>
+    <div class="marquee-item">Mortise Locks <span class="marquee-sep">◆</span></div>
+    <div class="marquee-item">Cabinet Pulls <span class="marquee-sep">◆</span></div>
+    <div class="marquee-item">Tower Bolts <span class="marquee-sep">◆</span></div>
     <div class="marquee-item">Premium Finishes <span class="marquee-sep">◆</span></div>
     <div class="marquee-item">PAN India Supply <span class="marquee-sep">◆</span></div>
     <div class="marquee-item">Dealer Network <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Rajkot, Gujarat <span class="marquee-sep">◆</span></div>
   </div>
 </div>
 
-<!-- ================================================
-     STATS
-================================================ -->
+<!-- STATS -->
 <div class="stats-band">
   <div class="stats-inner">
-    <div class="stat-item reveal">
+    <div class="stat-item">
       <div class="stat-num">36<sup>+</sup></div>
       <div class="stat-lbl">Product Models</div>
     </div>
-    <div class="stat-item reveal delay-1">
-      <div class="stat-num">3</div>
-      <div class="stat-lbl">Product Lines</div>
+    <div class="stat-item">
+      <div class="stat-num">14</div>
+      <div class="stat-lbl">Years of Excellence</div>
     </div>
-    <div class="stat-item reveal delay-2">
+    <div class="stat-item">
+      <div class="stat-num">500<sup>+</sup></div>
+      <div class="stat-lbl">Dealer Network</div>
+    </div>
+    <div class="stat-item">
       <div class="stat-num">PAN</div>
-      <div class="stat-lbl">India Distribution</div>
-    </div>
-    <div class="stat-item reveal delay-3">
-      <div class="stat-num">5<sup>+</sup></div>
-      <div class="stat-lbl">Finish Options</div>
+      <div class="stat-lbl">India Coverage</div>
     </div>
   </div>
 </div>
 
-<!-- ================================================
-     ABOUT
-================================================ -->
-<section class="section section-dark" id="about">
-  <div class="about-layout">
-    <div class="about-visual">
-      <div class="about-visual-inner">
-        <div class="about-logo-large">AA</div>
-        <div style="width:40px;height:1px;background:var(--gold);opacity:0.4;margin-top:16px;"></div>
-        <div style="margin-top:20px;text-align:center;">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--gold);letter-spacing:1px;">Yatin Goswami</div>
-          <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);margin-top:6px;">Founder & Director</div>
-        </div>
-        <div style="width:40px;height:1px;background:var(--gold);opacity:0.2;margin-top:16px;"></div>
-        <div style="font-size:11px;letter-spacing:2px;color:var(--text-3);text-transform:uppercase;margin-top:12px;">Est. 2012 · Rajkot, Gujarat</div>
-      </div>
-      <div class="about-visual-badge">GST Registered · Shivam Hardware</div>
+<!-- JOURNEY SECTION -->
+<section class="journey-section" id="journey">
+  <div class="label">Our Story</div>
+  <h2 class="display-title">Our Journey To <em>Luxury</em></h2>
+  <div class="gold-line"></div>
 
-      <!-- Achievement Cards -->
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-top:2px;">
-        <div style="background:var(--gold);padding:20px 10px;text-align:center;">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--black);line-height:1;">700<sup style="font-size:14px;">+</sup></div>
-          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(0,0,0,0.6);margin-top:4px;">Clients</div>
-        </div>
-        <div style="background:var(--black4);padding:20px 10px;text-align:center;border:1px solid var(--border);">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold);line-height:1;">12<sup style="font-size:14px;">+</sup></div>
-          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);margin-top:4px;">Years</div>
-        </div>
-        <div style="background:var(--black4);padding:20px 10px;text-align:center;border:1px solid var(--border);">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold);line-height:1;">36<sup style="font-size:14px;">+</sup></div>
-          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);margin-top:4px;">Products</div>
-        </div>
-      </div>
+  <div class="journey-content">
+    <div class="journey-text">
+      <h3>Where We Are</h3>
+      <p>
+        Since 2012, Aadhaya Hardware has been at the forefront of premium architectural hardware manufacturing. Starting from a small workshop, we've grown into one of India's most trusted names in luxury door handles, locks, and fittings.
+      </p>
+      <p>
+        Today, our network spans across India with 500+ dealers and distributors. Our products grace luxury homes, commercial spaces, and architectural marvels across the country.
+      </p>
     </div>
+    <div class="journey-visual">🏭</div>
+  </div>
 
-    <div class="about-text">
-      <div class="label">About Aadhaya</div>
-      <h2 class="display-title">
-        Built on <em>Quality.</em><br>
-        Trusted by <strong>Trade.</strong>
-      </h2>
-      <div class="gold-line"></div>
-      <p class="body-text">
-        Founded in 2012 by <strong style="color:var(--text-1);">Yatin Goswami</strong>, Aadhaya Hardware has grown from a Rajkot-based startup into one of Gujarat's trusted names in premium architectural hardware fittings. Over 12 years, we have built lasting relationships with 700+ clients across India — dealers, distributors, architects, and interior designers who rely on us for quality that never compromises.
+  <div class="journey-content journey-alt">
+    <div class="journey-visual">🚀</div>
+    <div class="journey-text">
+      <h3>Where We're Going</h3>
+      <p>
+        Our vision is to become the global standard for luxury architectural hardware. We're investing in cutting-edge manufacturing, innovative designs, and sustainable practices.
       </p>
-      <p class="body-text">
-        Every handle, lock, and fitting we manufacture reflects our founding philosophy — precision engineering meets elegant design. From modular kitchens to luxury commercial spaces, Aadhaya Hardware is the silent signature behind India's finest interiors.
+      <p>
+        We aim to reach 1000+ dealer partners and expand internationally. Every product we create is a step towards that vision — blending timeless elegance with modern engineering.
       </p>
-
-      <div class="about-pillars">
-        <div class="pillar">
-          <div class="pillar-num">01</div>
-          <div>
-            <div class="pillar-title">12+ Years of Excellence</div>
-            <div class="pillar-desc">Since 2012, consistently delivering premium hardware fittings with zero compromise on quality, finish, or reliability.</div>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">02</div>
-          <div>
-            <div class="pillar-title">700+ Trusted Clients</div>
-            <div class="pillar-desc">Dealers, distributors, architects, and builders across India — our growing network is our strongest testament.</div>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">03</div>
-          <div>
-            <div class="pillar-title">Direct Manufacturer</div>
-            <div class="pillar-desc">No middlemen — direct from our Rajkot facility to your business. Best pricing, fastest dispatch, GST compliant.</div>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">04</div>
-          <div>
-            <div class="pillar-title">PAN India Supply</div>
-            <div class="pillar-desc">Reliable logistics, proper packaging, and timely delivery to dealers and contractors across every Indian state.</div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
-
-<!-- ================================================
-     PRODUCTS
-================================================ -->
-<section class="section" id="products">
-  <div class="products-header">
-    <div class="reveal-left">
-      <div class="label">Our Products</div>
-      <h2 class="display-title">
-        Engineered for<br><em>Every Space</em>
-      </h2>
-    </div>
-    <div class="reveal-right">
-      <p class="body-text">
-        From sleek cabinet handles to heavy-duty mortise locks — our complete range covers every architectural hardware requirement for modern residential and commercial projects.
-      </p>
-      <div style="margin-top:24px;">
-        <a href="https://wa.me/918153888813?text=Hello!%20I%20want%20to%20know%20more%20about%20your%20product%20range." class="btn-ghost" target="_blank">Enquire for Pricing →</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="products-grid">
-
-    <div class="prod-card prod-card-lg reveal">
-      <div class="prod-card-inner">
-        <div class="prod-number">01</div>
-        <div class="prod-icon">🔩</div>
-        <div class="prod-name">Zinc Alloy<br>Cabinet Handles</div>
-        <div class="prod-desc">Premium die-cast zinc alloy handles for cabinets and drawers. Available in 18 models with multiple finish options — ideal for modular kitchens, wardrobes, and furniture.</div>
-        <div class="prod-finishes">
-          <span class="finish-tag">Gold</span>
-          <span class="finish-tag">Chrome</span>
-          <span class="finish-tag">Rose Gold</span>
-          <span class="finish-tag">Black</span>
-          <span class="finish-tag">Antique</span>
-        </div>
-        <a href="https://wa.me/918153888813?text=I%20want%20to%20enquire%20about%20Zinc%20Alloy%20Cabinet%20Handles" class="prod-link" target="_blank">
-          Enquire Now
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="prod-card prod-card-md reveal delay-1">
-      <div class="prod-card-inner">
-        <div class="prod-number">02</div>
-        <div class="prod-icon">🚪</div>
-        <div class="prod-name">Door<br>Handles</div>
-        <div class="prod-desc">Elegant door handles crafted for main doors, interior doors, and commercial entrances. Sturdy construction with refined surface treatment.</div>
-        <div class="prod-finishes">
-          <span class="finish-tag">Satin</span>
-          <span class="finish-tag">Matte Black</span>
-          <span class="finish-tag">Gold</span>
-        </div>
-        <a href="https://wa.me/918153888813?text=I%20want%20to%20enquire%20about%20Door%20Handles" class="prod-link" target="_blank">
-          Enquire Now
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="prod-card prod-card-sm reveal delay-2">
-      <div class="prod-card-inner">
-        <div class="prod-number">03</div>
-        <div class="prod-icon">⭕</div>
-        <div class="prod-name">Knobs<br>& Pulls</div>
-        <div class="prod-desc">Precision-crafted knobs for furniture, cabinets, and drawers. Timeless forms in premium zinc alloy and brass.</div>
-        <div class="prod-finishes">
-          <span class="finish-tag">Gold</span>
-          <span class="finish-tag">Chrome</span>
-        </div>
-        <a href="https://wa.me/918153888813?text=I%20want%20to%20enquire%20about%20Knobs" class="prod-link" target="_blank">
-          Enquire Now
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="prod-card prod-card-xl reveal delay-1">
-      <div class="prod-card-inner">
-        <div class="prod-number">04</div>
-        <div class="prod-icon">🔐</div>
-        <div class="prod-name">SS Mortise<br>Locks</div>
-        <div class="prod-desc">Heavy-duty stainless steel mortise locks designed for main entrance doors. 17 models available — AML-301 through AML-317. Built for security, durability, and premium residential and commercial applications. Smooth operation, precise mechanism, long-lasting performance.</div>
-        <div class="prod-finishes">
-          <span class="finish-tag">SS Finish</span>
-          <span class="finish-tag">Gold PVD</span>
-          <span class="finish-tag">Black</span>
-          <span class="finish-tag">Antique</span>
-        </div>
-        <a href="https://wa.me/918153888813?text=I%20want%20to%20enquire%20about%20SS%20Mortise%20Locks" class="prod-link" target="_blank">
-          Enquire Now
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="prod-card prod-card-sm reveal delay-3">
-      <div class="prod-card-inner">
-        <div class="prod-number">05</div>
-        <div class="prod-icon">✨</div>
-        <div class="prod-name">SS<br>Handles</div>
-        <div class="prod-desc">18 stainless steel handle models — AH-SS-031 to AH-SS-060. Corrosion-resistant, modern, and built to last.</div>
-        <div class="prod-finishes">
-          <span class="finish-tag">Satin SS</span>
-          <span class="finish-tag">Mirror</span>
-        </div>
-        <a href="https://wa.me/918153888813?text=I%20want%20to%20enquire%20about%20SS%20Handles" class="prod-link" target="_blank">
-          Enquire Now
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================================================
-     FINISHES
-================================================ -->
-<section class="section-sm section-darker">
-  <div style="text-align:center;margin-bottom:0;">
-    <div class="label" style="justify-content:center;">Finish Options</div>
-    <h2 class="display-title" style="text-align:center;">Every Surface.<br><em>Perfected.</em></h2>
-  </div>
-  <div class="finishes-grid">
-    <div class="finish-card reveal">
-      <div class="finish-bg gold-finish"></div>
-      <div class="finish-name">Gold</div>
-      <div class="finish-sub">PVD Coated</div>
-    </div>
-    <div class="finish-card reveal delay-1">
-      <div class="finish-bg chrome-finish"></div>
-      <div class="finish-name">Chrome</div>
-      <div class="finish-sub">Mirror Polish</div>
-    </div>
-    <div class="finish-card reveal delay-2">
-      <div class="finish-bg matte-finish"></div>
-      <div class="finish-name">Matte Black</div>
-      <div class="finish-sub">Powder Coat</div>
-    </div>
-    <div class="finish-card reveal delay-3">
-      <div class="finish-bg antique-finish"></div>
-      <div class="finish-name">Antique</div>
-      <div class="finish-sub">Aged Bronze</div>
-    </div>
-    <div class="finish-card reveal delay-4">
-      <div class="finish-bg rose-finish"></div>
-      <div class="finish-name">Rose Gold</div>
-      <div class="finish-sub">PVD Coated</div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================
-     CATALOGUES
-================================================ -->
-<section class="section section-dark" id="catalogues">
-  <div class="label">Download Catalogues</div>
-  <h2 class="display-title reveal">
-    Our Product<br><em>Catalogues</em>
-  </h2>
-  <p class="body-text reveal" style="margin-top:12px;margin-bottom:0;">
-    View or download our complete product range. For a customised dealer catalogue, reach out on WhatsApp.
+<!-- COLLECTIONS -->
+<section class="section" id="collections">
+  <div class="label">Product Collections</div>
+  <h2 class="display-title">Our Luxury <em>Collections</em></h2>
+  <div class="gold-line"></div>
+  <p class="body-text">
+    Discover our carefully curated collections, each designed to elevate spaces with unmatched craftsmanship and contemporary elegance.
   </p>
 
-  <div class="catalog-wrap" style="margin-top:60px;">
-    <div class="catalog-feature reveal-left">
+  <div class="collections-grid">
+    <div class="collection-card">
+      <div class="collection-image">🔐</div>
+      <div class="collection-content">
+        <div class="collection-title">Zinc Alloy Handles</div>
+        <div class="collection-desc">Premium designs with versatile finishes. 18+ models for every architectural style.</div>
+      </div>
+    </div>
+
+    <div class="collection-card">
+      <div class="collection-image">✨</div>
+      <div class="collection-content">
+        <div class="collection-title">Stainless Steel</div>
+        <div class="collection-desc">Durable SS handles with multiple finish options. Perfect for contemporary spaces.</div>
+      </div>
+    </div>
+
+    <div class="collection-card">
+      <div class="collection-image">🔑</div>
+      <div class="collection-content">
+        <div class="collection-title">Mortise Locks</div>
+        <div class="collection-desc">Premium security locks engineered for residential and commercial applications.</div>
+      </div>
+    </div>
+
+    <div class="collection-card">
+      <div class="collection-image">📌</div>
+      <div class="collection-content">
+        <div class="collection-title">Tower Bolts</div>
+        <div class="collection-desc">Heavy-duty bolts for doors and windows with superior finish quality.</div>
+      </div>
+    </div>
+
+    <div class="collection-card">
+      <div class="collection-image">⚙️</div>
+      <div class="collection-content">
+        <div class="collection-title">Hinges</div>
+        <div class="collection-desc">Precision engineered hinges for smooth, silent door operation.</div>
+      </div>
+    </div>
+
+    <div class="collection-card">
+      <div class="collection-image">🏗️</div>
+      <div class="collection-content">
+        <div class="collection-title">Architectural Fittings</div>
+        <div class="collection-desc">Complete range for all architectural and design requirements.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="section section-dark" id="team">
+  <div class="label">Our Leadership</div>
+  <h2 class="display-title">Meet Our <em>Team</em></h2>
+  <div class="gold-line"></div>
+
+  <div class="team-grid">
+    <div class="team-member">
+      <div class="member-avatar">👨‍💼</div>
+      <div class="member-name">Shivam Goswami</div>
+      <div class="member-role">Founder & CEO</div>
+      <div class="member-bio">Visionary entrepreneur with 14+ years in premium hardware manufacturing. Passionate about quality and innovation.</div>
+    </div>
+
+    <div class="team-member">
+      <div class="member-avatar">👨‍🔧</div>
+      <div class="member-name">Rajesh Patel</div>
+      <div class="member-role">Head of Manufacturing</div>
+      <div class="member-bio">Expert in precision engineering with extensive experience in metal fabrication and quality control.</div>
+    </div>
+
+    <div class="team-member">
+      <div class="member-avatar">👨‍💻</div>
+      <div class="member-name">Amit Kumar</div>
+      <div class="member-role">Business Development</div>
+      <div class="member-bio">Strategic business leader driving dealer relationships and market expansion across Pan-India.</div>
+    </div>
+
+    <div class="team-member">
+      <div class="member-avatar">👩‍💼</div>
+      <div class="member-name">Priya Sharma</div>
+      <div class="member-role">Design & Innovation</div>
+      <div class="member-bio">Creative designer specializing in contemporary hardware aesthetics and product innovation.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="label">Client Stories</div>
+  <h2 class="display-title">What Our <em>Clients Say</em></h2>
+  <div class="gold-line"></div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-text">"Aadhaya's handles transformed our luxury residential project. Premium quality and exceptional service throughout."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">RK</div>
+        <div class="testimonial-info">
+          <div class="testimonial-name">Rajesh Kumar</div>
+          <div class="testimonial-company">Luxury Homes Developer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-text">"Working as an Aadhaya dealer has been extremely profitable. Great margins, fantastic product quality, and amazing support."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">SA</div>
+        <div class="testimonial-info">
+          <div class="testimonial-name">Sunita Arora</div>
+          <div class="testimonial-company">Hardware Dealer, Delhi</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-text">"The design team understood our vision perfectly. Custom mortise locks delivered on time with impeccable quality."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">VJ</div>
+        <div class="testimonial-info">
+          <div class="testimonial-name">Vikram Joshi</div>
+          <div class="testimonial-company">Architect, Mumbai</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-text">"Consistent quality across all orders. Their commercial-grade products are perfect for our high-traffic installations."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">MA</div>
+        <div class="testimonial-info">
+          <div class="testimonial-name">Meera Agarwal</div>
+          <div class="testimonial-company">Commercial Contractor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG SECTION -->
+<section class="section section-dark" id="blog">
+  <div class="label">Resources & Tips</div>
+  <h2 class="display-title">Hardware <em>Insights</em></h2>
+  <div class="gold-line"></div>
+
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-image">🔐</div>
+      <div class="blog-content">
+        <div class="blog-category">Guide</div>
+        <div class="blog-title">Choosing the Perfect Door Handle</div>
+        <div class="blog-excerpt">Learn about handle styles, materials, and finishes to match your interior design perfectly.</div>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-image">✨</div>
+      <div class="blog-content">
+        <div class="blog-category">Trends</div>
+        <div class="blog-title">2026 Hardware Design Trends</div>
+        <div class="blog-excerpt">Explore the latest in luxury hardware design, from minimalism to ornate elegance.</div>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-image">🏗️</div>
+      <div class="blog-content">
+        <div class="blog-category">Education</div>
+        <div class="blog-title">Understanding Mortise Lock Installation</div>
+        <div class="blog-excerpt">Complete guide to mortise lock selection, installation, and maintenance for longevity.</div>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-image">🎨</div>
+      <div class="blog-content">
+        <div class="blog-category">Design</div>
+        <div class="blog-title">Hardware That Complements Your Interior</div>
+        <div class="blog-excerpt">How to select hardware finishes and styles that enhance your overall design aesthetic.</div>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-image">💎</div>
+      <div class="blog-content">
+        <div class="blog-category">Premium</div>
+        <div class="blog-title">Luxury Hardware for High-End Projects</div>
+        <div class="blog-excerpt">Specifications and selection guide for premium architectural hardware in luxury developments.</div>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-image">🛠️</div>
+      <div class="blog-content">
+        <div class="blog-category">Maintenance</div>
+        <div class="blog-title">Care & Maintenance Tips</div>
+        <div class="blog-excerpt">Keep your hardware looking pristine with these professional maintenance and care guidelines.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section">
+  <div class="newsletter-section">
+    <h3 class="newsletter-title">Stay Updated</h3>
+    <p class="newsletter-desc">Subscribe to our newsletter for design tips, product launches, and exclusive dealer offers.</p>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" class="newsletter-input" placeholder="Your email address" required>
+      <button type="submit" class="newsletter-btn">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section section-dark" id="contact">
+  <div class="label">Get In Touch</div>
+  <h2 class="display-title">Let's Build <em>Luxury Together</em></h2>
+  <div class="gold-line"></div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; align-items: start;">
+    <div>
+      <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 30px;">Contact Information</h3>
+
+      <div style="margin-bottom: 30px;">
+        <div style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-bottom: 5px;">📍 Address</div>
+        <div style="font-size: 14px; color: var(--text-1);">Patel Nagar, Rajkot<br>Gujarat, India 360001</div>
+      </div>
+
+      <div style="margin-bottom: 30px;">
+        <div style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-bottom: 5px;">📞 Phone</div>
+        <div style="font-size: 14px; color: var(--text-1);"><a href="tel:+919913235199" style="color: var(--gold); text-decoration: none;">+91 99132 35199</a></div>
+      </div>
+
+      <div style="margin-bottom: 30px;">
+        <div style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-bottom: 5px;">💬 WhatsApp</div>
+        <div style="font-size: 14px; color: var(--text-1);"><a href="https://wa.me/918153888813" style="color: var(--gold); text-decoration: none;">+91 81538 88813</a> (24/7)</div>
+      </div>
+
+      <div style="margin-bottom: 30px;">
+        <div style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-bottom: 5px;">📧 Email</div>
+        <div style="font-size: 14px; color: var(--text-1);"><a href="mailto:aadhayahardware@gmail.com" style="color: var(--gold); text-decoration: none;">aadhayahardware@gmail.com</a></div>
+      </div>
+
       <div>
-        <div class="label">Featured</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--white);line-height:1.2;margin-bottom:16px;">
-          Aadhaya<br><em style="color:var(--gold);font-style:italic;">Complete</em><br>Collection
-        </h3>
-        <p class="body-text" style="margin-bottom:32px;">
-          Our full product library across Zinc Alloy Handles, SS Handles, and Mortise Locks — curated for dealers, architects, and project buyers.
-        </p>
-        <a href="https://wa.me/918153888813?text=Please%20send%20me%20the%20complete%20Aadhaya%20Hardware%20catalogue." class="btn-primary" target="_blank"><span>📲 Request on WhatsApp</span></a>
+        <div style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-bottom: 5px;">🕐 Hours</div>
+        <div style="font-size: 14px; color: var(--text-1);">Mon - Sat: 9:00 AM - 7:00 PM IST<br>WhatsApp: 24/7 Available</div>
       </div>
-      <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
-        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);">Also available as PDF download</div>
+
+      <div style="margin-top: 30px;">
+        <div style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-bottom: 15px;">Follow Us</div>
+        <div class="social-links">
+          <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
+          <a href="https://facebook.com" target="_blank" title="Facebook">f</a>
+          <a href="https://linkedin.com" target="_blank" title="LinkedIn">in</a>
+          <a href="https://youtube.com" target="_blank" title="YouTube">▶</a>
+        </div>
       </div>
     </div>
 
-    <div class="catalog-downloads reveal-right">
-      <a href="files/aadhaya-catalogue-v23.pdf" target="_blank" class="catalog-item">
-        <div class="catalog-item-icon">🔩</div>
-        <div class="catalog-item-info">
-          <div class="catalog-item-name">Zinc Alloy Handles</div>
-          <div class="catalog-item-sub">18 Models · NH Series · Cabinet & Drawer</div>
-        </div>
-        <div class="catalog-item-action">Download PDF ↗</div>
-      </a>
-
-      <a href="files/aadhaya-ss-catalogue.pdf" target="_blank" class="catalog-item">
-        <div class="catalog-item-icon">✨</div>
-        <div class="catalog-item-info">
-          <div class="catalog-item-name">SS Handles Collection</div>
-          <div class="catalog-item-sub">18 Models · AH-SS-031 to AH-SS-060</div>
-        </div>
-        <div class="catalog-item-action">Download PDF ↗</div>
-      </a>
-
-      <a href="files/aadhaya-ss-mortise.pdf" target="_blank" class="catalog-item">
-        <div class="catalog-item-icon">🔐</div>
-        <div class="catalog-item-info">
-          <div class="catalog-item-name">SS Mortise Locks</div>
-          <div class="catalog-item-sub">17 Models · AML-301 to AML-317</div>
-        </div>
-        <div class="catalog-item-action">Download PDF ↗</div>
-      </a>
-
-      <a href="https://wa.me/918153888813?text=I%20need%20a%20custom%20catalogue%20for%20my%20dealership." target="_blank" class="catalog-item">
-        <div class="catalog-item-icon">📋</div>
-        <div class="catalog-item-info">
-          <div class="catalog-item-name">Custom Dealer Catalogue</div>
-          <div class="catalog-item-sub">Branded with your business details</div>
-        </div>
-        <div class="catalog-item-action">Request →</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================
-     WHY AADHAYA
-================================================ -->
-<section class="section" id="why">
-  <div class="why-layout">
     <div>
-      <div class="label reveal">Why Choose Us</div>
-      <h2 class="display-title reveal">
-        Reliable.<br><em>Refined.</em><br><strong>Ready.</strong>
-      </h2>
-      <div class="gold-line reveal"></div>
-      <p class="body-text reveal">
-        We are a manufacturer-direct hardware brand. No compromises on quality. No markups through middlemen. Just premium fittings at the right price for serious business partners.
-      </p>
-
-      <div class="why-list">
-        <div class="why-item reveal">
-          <div class="why-item-icon">🏭</div>
-          <div>
-            <div class="why-item-title">Direct Manufacturer</div>
-            <div class="why-item-desc">Buy direct from our Rajkot factory. Better pricing, consistent quality, and faster turnaround for dealers and distributors.</div>
-          </div>
-        </div>
-        <div class="why-item reveal delay-1">
-          <div class="why-item-icon">✅</div>
-          <div>
-            <div class="why-item-title">GST Registered Business</div>
-            <div class="why-item-desc">Fully compliant GST invoicing. Proper documentation for all B2B transactions — reliable for CA-audited businesses.</div>
-          </div>
-        </div>
-        <div class="why-item reveal delay-2">
-          <div class="why-item-icon">🚚</div>
-          <div>
-            <div class="why-item-title">PAN India Delivery</div>
-            <div class="why-item-desc">We dispatch to dealers and contractors across India. Reliable packaging, proper labelling, and timely logistics.</div>
-          </div>
-        </div>
-        <div class="why-item reveal delay-3">
-          <div class="why-item-icon">🎨</div>
-          <div>
-            <div class="why-item-title">Multiple Finish Options</div>
-            <div class="why-item-desc">Gold, Chrome, Rose Gold, Matte Black, Antique — curated finishes that match every modern interior design requirement.</div>
-          </div>
-        </div>
-        <div class="why-item reveal delay-4">
-          <div class="why-item-icon">🤖</div>
-          <div>
-            <div class="why-item-title">24/7 WhatsApp Support</div>
-            <div class="why-item-desc">AI-powered WhatsApp bot for instant product info, pricing, and catalogue requests — available around the clock.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="why-visual-grid reveal-right">
-      <div class="why-visual-block">
-        <div class="wvb-num">36<sup style="font-size:20px">+</sup></div>
-        <div class="wvb-text">Product models</div>
-      </div>
-      <div class="why-visual-block">
-        <div class="wvb-num">5<sup style="font-size:20px">+</sup></div>
-        <div class="wvb-text">Premium finishes</div>
-      </div>
-      <div class="why-visual-block featured">
-        <div class="wvb-num" style="font-size:48px;color:var(--black);">PAN India</div>
-        <div class="wvb-text" style="color:rgba(0,0,0,0.55);">Distribution network ready</div>
-      </div>
-      <div class="why-visual-block">
-        <div class="wvb-num">B2B</div>
-        <div class="wvb-text">Dealer-first</div>
-      </div>
-      <div class="why-visual-block">
-        <div class="wvb-num">GST</div>
-        <div class="wvb-text">Compliant billing</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================
-     DEALER / DISTRIBUTOR
-================================================ -->
-<section class="section section-dark" id="dealer">
-  <div class="dealer-wrap">
-    <div>
-      <div class="label reveal">Partner With Us</div>
-      <h2 class="display-title reveal">
-        Become an<br><em>Aadhaya</em><br>Dealer
-      </h2>
-      <div class="gold-line reveal"></div>
-      <p class="body-text reveal">
-        We are actively building our dealer and distributor network across India. If you are a hardware retailer, distributor, or wholesaler looking for a premium product line to add to your portfolio — Aadhaya Hardware is the right partner.
-      </p>
-
-      <div class="dealer-benefits">
-        <div class="dealer-benefit reveal">
-          <div class="dealer-benefit-icon">💰</div>
-          <div class="dealer-benefit-text">Competitive dealer pricing with healthy margins</div>
-        </div>
-        <div class="dealer-benefit reveal delay-1">
-          <div class="dealer-benefit-icon">📦</div>
-          <div class="dealer-benefit-text">Reliable stock availability and fast dispatch</div>
-        </div>
-        <div class="dealer-benefit reveal delay-2">
-          <div class="dealer-benefit-icon">📄</div>
-          <div class="dealer-benefit-text">Proper GST invoicing for B2B compliance</div>
-        </div>
-        <div class="dealer-benefit reveal delay-3">
-          <div class="dealer-benefit-icon">🎨</div>
-          <div class="dealer-benefit-text">Custom branded catalogues for your dealership</div>
-        </div>
-        <div class="dealer-benefit reveal delay-4">
-          <div class="dealer-benefit-icon">📲</div>
-          <div class="dealer-benefit-text">Direct WhatsApp support from our team</div>
-        </div>
-        <div class="dealer-benefit reveal delay-5">
-          <div class="dealer-benefit-icon">🏅</div>
-          <div class="dealer-benefit-text">Premium product range suitable for high-end projects</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="dealer-form reveal-right">
-      <div class="dealer-form-title">Send Enquiry</div>
-      <div class="dealer-form-sub">Fill the form below or contact us directly on WhatsApp</div>
-
-      <form id="dealerForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="f-name">Your Name *</label>
-            <input class="form-input" type="text" id="f-name" placeholder="Full Name" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-biz">Business Name *</label>
-            <input class="form-input" type="text" id="f-biz" placeholder="Your Shop / Company" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="f-city">City *</label>
-            <input class="form-input" type="text" id="f-city" placeholder="Your City" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-phone">WhatsApp Number *</label>
-            <input class="form-input" type="tel" id="f-phone" placeholder="+91 00000 00000" required>
-          </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label>Name *</label>
+          <input type="text" name="name" required>
         </div>
         <div class="form-group">
-          <label class="form-label" for="f-type">Enquiry Type</label>
-          <select class="form-select form-input" id="f-type">
-            <option value="dealer">Dealer / Retailer</option>
-            <option value="distributor">Distributor / Wholesaler</option>
-            <option value="architect">Architect / Interior Designer</option>
-            <option value="project">Bulk Project Requirement</option>
-            <option value="other">Other</option>
-          </select>
+          <label>Email *</label>
+          <input type="email" name="email" required>
         </div>
         <div class="form-group">
-          <label class="form-label" for="f-req">Requirement / Message</label>
-          <textarea class="form-textarea form-input" id="f-req" placeholder="Tell us about your requirements, product interest, or any questions..."></textarea>
+          <label>Phone *</label>
+          <input type="tel" name="phone" required>
         </div>
-        <button type="submit" class="form-submit">Send Enquiry via WhatsApp →</button>
+        <div class="form-group">
+          <label>Message *</label>
+          <textarea name="message" required placeholder="Tell us how we can help..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message</button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ================================================
-     CONTACT
-================================================ -->
-<section class="section" id="contact">
-  <div class="contact-layout">
-    <div>
-      <div class="label reveal">Get In Touch</div>
-      <h2 class="display-title reveal">
-        Let's Do<br><em>Business</em>
-      </h2>
-      <div class="gold-line reveal"></div>
-      <p class="body-text reveal">
-        For product enquiries, pricing, bulk orders, or dealership discussions — reach out via WhatsApp or contact us directly. We respond fast.
-      </p>
-
-      <div class="contact-info">
-        <div class="contact-item reveal">
-          <div class="contact-icon">📍</div>
-          <div>
-            <div class="contact-label">Address</div>
-            <div class="contact-value">Patel Nagar, Rajkot, Gujarat, India</div>
-          </div>
-        </div>
-        <div class="contact-item reveal delay-1">
-          <div class="contact-icon">📞</div>
-          <div>
-            <div class="contact-label">Phone / WhatsApp</div>
-            <div class="contact-value"><a href="tel:+919913235199">+91 99132 35199</a></div>
-          </div>
-        </div>
-        <div class="contact-item reveal delay-2">
-          <div class="contact-icon">🤖</div>
-          <div>
-            <div class="contact-label">WhatsApp AI Bot</div>
-            <div class="contact-value"><a href="https://wa.me/918153888813" target="_blank">+91 81538 88813</a> — Available 24/7</div>
-          </div>
-        </div>
-        <div class="contact-item reveal delay-3">
-          <div class="contact-icon">📧</div>
-          <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-value"><a href="mailto:aadhayahardware@gmail.com">aadhayahardware@gmail.com</a></div>
-          </div>
-        </div>
-        <div class="contact-item reveal delay-4">
-          <div class="contact-icon">🕐</div>
-          <div>
-            <div class="contact-label">Business Hours</div>
-            <div class="contact-value">Mon – Sat: 9:00 AM – 7:00 PM IST</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="reveal-right">
-      <div class="whatsapp-card">
-        <div class="wa-big-icon">💬</div>
-        <div class="wa-card-title">Chat with<br>Us on<br>WhatsApp</div>
-        <div class="wa-card-sub">
-          Get instant replies on product enquiries, catalogue requests, dealer pricing, and bulk orders. Our AI-powered bot is available 24/7 — and our team responds same day.
-        </div>
-        <a href="https://wa.me/918153888813?text=Hello%20Aadhaya%20Hardware!%20I%20would%20like%20to%20enquire%20about%20your%20products." class="wa-card-btn" target="_blank">
-          💬 Start WhatsApp Chat
-        </a>
-        <div class="wa-number">Bot Number: +91 81538 88813</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================
-     FOOTER
-================================================ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand-name">Aadhaya <span style="color:var(--text-1);font-weight:300;">Hardware</span></div>
-      <div class="footer-brand-tag">Premium Locks & Fittings · Rajkot</div>
-      <p class="footer-brand-desc">
-        Manufacturer and supplier of premium architectural hardware fittings. Trusted by dealers, distributors, architects, and builders across India.
-      </p>
+      <div style="font-size: 20px; font-weight: 600; color: var(--text-1); margin-bottom: 8px;">Aadhaya <span style="color: var(--gold);">Hardware</span></div>
+      <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-bottom: 15px;">Premium Locks & Fittings</div>
+      <p style="font-size: 13px; color: var(--text-2); line-height: 1.6;">Manufacturer and supplier of premium architectural hardware fittings trusted by dealers, architects, and builders across India.</p>
     </div>
 
     <div>
-      <div class="footer-col-title">Products</div>
+      <div class="footer-col-title">Collections</div>
       <ul class="footer-links-list">
-        <li><a href="#products">Zinc Alloy Handles</a></li>
-        <li><a href="#products">SS Handles</a></li>
-        <li><a href="#products">SS Mortise Locks</a></li>
-        <li><a href="#products">Door Handles</a></li>
-        <li><a href="#products">Knobs & Pulls</a></li>
+        <li><a href="#collections">Zinc Alloy Handles</a></li>
+        <li><a href="#collections">SS Handles</a></li>
+        <li><a href="#collections">Mortise Locks</a></li>
+        <li><a href="#collections">Tower Bolts</a></li>
       </ul>
     </div>
 
     <div>
       <div class="footer-col-title">Company</div>
       <ul class="footer-links-list">
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#catalogues">Catalogues</a></li>
-        <li><a href="#dealer">Become Dealer</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#why">Why Aadhaya</a></li>
+        <li><a href="#journey">Our Journey</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#blog">Blog</a></li>
       </ul>
     </div>
 
@@ -712,17 +1484,64 @@
         <li><a href="https://wa.me/918153888813" target="_blank">WhatsApp Bot</a></li>
         <li><a href="tel:+919913235199">+91 99132 35199</a></li>
         <li><a href="mailto:aadhayahardware@gmail.com">aadhayahardware@gmail.com</a></li>
-        <li style="color:var(--text-3);font-size:13px;">Patel Nagar, Rajkot,<br>Gujarat – India</li>
+        <li style="color: var(--text-3); font-size: 12px;">Rajkot, Gujarat</li>
       </ul>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Aadhaya Hardware (Shivam Hardware). All rights reserved.</div>
-    <div class="footer-gst">GST Registered · Made in India 🇮🇳</div>
+    <div>© 2026 Aadhaya Hardware. All rights reserved.</div>
+    <div>GST Registered · Made in India 🇮🇳</div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script>
+  // Mobile Nav
+  const hamburger = document.getElementById('navHamburger');
+  const navMobile = document.getElementById('navMobile');
+  const navClose = document.getElementById('navClose');
+
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    hamburger.classList.toggle('active');
+    navMobile.classList.toggle('active');
+  });
+
+  navClose.addEventListener('click', function() {
+    hamburger.classList.remove('active');
+    navMobile.classList.remove('active');
+  });
+
+  document.querySelectorAll('.nav-mobile-links a').forEach(link => {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      navMobile.classList.remove('active');
+    });
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('nav')) {
+      hamburger.classList.remove('active');
+      navMobile.classList.remove('active');
+    }
+  });
+
+  // Forms
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you! Your message has been received. We will contact you soon.');
+    this.reset();
+  });
+
+  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for subscribing! Check your email for updates.');
+    this.reset();
+  });
+
+  // Marquee
+  const marqueeTrack = document.querySelector('.marquee-track');
+  marqueeTrack.innerHTML += marqueeTrack.innerHTML;
+</script>
 </body>
 </html>
