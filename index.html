@@ -286,6 +286,17 @@ body { font-family: 'Cormorant Garamond', serif; background: var(--bg-1); color:
 .collection-title { font-size: 18px; font-weight: 500; color: var(--text-1); margin-bottom: 10px; }
 .collection-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; }
 
+/* CATALOGUES */
+.catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 50px; }
+.catalog-card { border: 1px solid rgba(201, 154, 79, 0.2); background: rgba(201, 154, 79, 0.03); padding: 28px; min-height: 100%; display: flex; flex-direction: column; gap: 18px; transition: all 0.3s; }
+.catalog-card:hover { border-color: var(--gold); background: rgba(201, 154, 79, 0.08); transform: translateY(-6px); }
+.catalog-icon { width: 64px; height: 64px; border: 1px solid rgba(201, 154, 79, 0.3); display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--gold); background: rgba(9, 8, 10, 0.45); }
+.catalog-meta { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); }
+.catalog-title { font-size: 20px; color: var(--text-1); }
+.catalog-desc { font-size: 13px; line-height: 1.7; color: var(--text-2); flex: 1; }
+.catalog-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.catalog-actions a { flex: 1 1 140px; text-align: center; }
+
 /* TEAM SECTION */
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 50px; }
 .team-member { text-align: center; }
@@ -410,6 +421,7 @@ footer { background: var(--bg-2); border-top: 1px solid rgba(201, 154, 79, 0.1);
     <li><a href="#journey">About</a></li>
     <li><a href="#signature">Signature</a></li>
     <li><a href="#collections">Collections</a></li>
+    <li><a href="#catalogues">Catalogues</a></li>
     <li><a href="#team">Team</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
     <li><a href="#blog">Blog</a></li>
@@ -434,6 +446,7 @@ footer { background: var(--bg-2); border-top: 1px solid rgba(201, 154, 79, 0.1);
       <li><a href="#home">Home</a></li>
       <li><a href="#journey">About</a></li>
       <li><a href="#collections">Collections</a></li>
+      <li><a href="#catalogues">Catalogues</a></li>
     </ul>
     <div class="nav-hamburger" id="navHamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -829,6 +842,56 @@ footer { background: var(--bg-2); border-top: 1px solid rgba(201, 154, 79, 0.1);
   </div>
 </section>
 
+<!-- CATALOGUES -->
+<section class="section section-dark" id="catalogues">
+  <div class="label">Download Center</div>
+  <h2 class="display-title">Product <em>Catalogues</em></h2>
+  <div class="gold-line"></div>
+  <p class="body-text">Browse our latest PDF catalogues and price lists for locks, handles, sofa legs, and fittings. Open online or download directly for dealer sharing.</p>
+  <div class="catalog-grid">
+    <article class="catalog-card">
+      <div class="catalog-icon">PDF</div>
+      <div class="catalog-meta">Price List</div>
+      <h3 class="catalog-title">Lock Body Cylinder</h3>
+      <p class="catalog-desc">Detailed lock body and cylinder price list for dealer enquiries and quick product reference.</p>
+      <div class="catalog-actions">
+        <a class="btn-ghost" href="lock-body-cylinder-price-list.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="btn-primary" href="lock-body-cylinder-price-list.pdf" download>Download</a>
+      </div>
+    </article>
+    <article class="catalog-card">
+      <div class="catalog-icon">PDF</div>
+      <div class="catalog-meta">Handle Range</div>
+      <h3 class="catalog-title">S.S. Handle</h3>
+      <p class="catalog-desc">Stainless steel handle catalogue with product options suited for premium residential and commercial projects.</p>
+      <div class="catalog-actions">
+        <a class="btn-ghost" href="ss-handle.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="btn-primary" href="ss-handle.pdf" download>Download</a>
+      </div>
+    </article>
+    <article class="catalog-card">
+      <div class="catalog-icon">PDF</div>
+      <div class="catalog-meta">Furniture Fittings</div>
+      <h3 class="catalog-title">Sofa Leg</h3>
+      <p class="catalog-desc">Sofa leg catalogue for furniture hardware buyers looking for finish, size, and style references.</p>
+      <div class="catalog-actions">
+        <a class="btn-ghost" href="sofaleg.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="btn-primary" href="sofaleg.pdf" download>Download</a>
+      </div>
+    </article>
+    <article class="catalog-card">
+      <div class="catalog-icon">PDF</div>
+      <div class="catalog-meta">Handle Range</div>
+      <h3 class="catalog-title">Zinc Handle</h3>
+      <p class="catalog-desc">Zinc handle catalogue featuring premium designs and finish options for modern architectural use.</p>
+      <div class="catalog-actions">
+        <a class="btn-ghost" href="zinc-handle.pdf" target="_blank" rel="noopener">View PDF</a>
+        <a class="btn-primary" href="zinc-handle.pdf" download>Download</a>
+      </div>
+    </article>
+  </div>
+</section>
+
 <!-- TEAM SECTION -->
 <section class="section section-dark" id="team">
   <div class="label">Our Leadership</div>
@@ -973,6 +1036,7 @@ footer { background: var(--bg-2); border-top: 1px solid rgba(201, 154, 79, 0.1);
       <div class="footer-col-title">Company</div>
       <ul class="footer-links-list">
         <li><a href="#journey">Our Journey</a></li>
+        <li><a href="#catalogues">Catalogues</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#blog">Blog</a></li>
