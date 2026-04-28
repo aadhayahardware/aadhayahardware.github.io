@@ -223,6 +223,7 @@ body { font-family: 'Cormorant Garamond', serif; background: var(--bg-1); color:
 .signature-stage .knob-layer { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.9s ease, transform 1.2s cubic-bezier(.2,.8,.2,1); transform: scale(0.9) rotate(-4deg); pointer-events: none; }
 .signature-stage .knob-layer.active { opacity: 1; transform: scale(1) rotate(0); }
 .signature-stage svg { width: 62%; height: auto; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.85)); }
+.signature-stage img { max-width: 88%; max-height: 88%; }
 .signature-stage .finish-label { position: absolute; bottom: 28px; left: 28px; right: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-3); z-index: 3; }
 .signature-stage .finish-label .fl-name { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 2px; }
 .signature-stage .frame-corner { position: absolute; width: 20px; height: 20px; border-color: rgba(201,154,79,0.5); z-index: 2; }
@@ -649,157 +650,31 @@ footer { background: var(--bg-2); border-top: 1px solid rgba(201, 154, 79, 0.1);
 
       <!-- GOLD -->
       <div class="knob-layer active" data-layer="gold">
-        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" aria-label="Antique Brass finish">
-          <defs>
-            <linearGradient id="kg-gold" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#6a4a1e"/>
-              <stop offset="25%" stop-color="#c89d59"/>
-              <stop offset="50%" stop-color="#f5dca0"/>
-              <stop offset="75%" stop-color="#c89d59"/>
-              <stop offset="100%" stop-color="#3a2710"/>
-            </linearGradient>
-            <linearGradient id="kg-gold-top" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#8a5f24"/>
-              <stop offset="50%" stop-color="#d9b26d"/>
-              <stop offset="100%" stop-color="#5c3e16"/>
-            </linearGradient>
-            <radialGradient id="kg-gold-front" cx="0.5" cy="0.5" r="0.5">
-              <stop offset="0%" stop-color="#1a1005"/>
-              <stop offset="60%" stop-color="#0a0604"/>
-              <stop offset="100%" stop-color="#000"/>
-            </radialGradient>
-          </defs>
-          <ellipse cx="200" cy="60" rx="180" ry="30" fill="url(#kg-gold-top)" stroke="#3a2710" stroke-width="1"/>
-          <g>
-            <rect x="20" y="60" width="360" height="200" fill="url(#kg-gold)"/>
-            <!-- flutes -->
-            <g stroke="#3a2710" stroke-width="0.5" opacity="0.85">
-              <!-- will be programmatically same visually via repeating lines -->
-            </g>
-          </g>
-          <!-- flute ribs -->
-          <g fill="none" stroke="rgba(58,39,16,0.9)" stroke-width="0.6">
-            <line x1="30" y1="60" x2="30" y2="260"/><line x1="42" y1="60" x2="42" y2="260"/><line x1="54" y1="60" x2="54" y2="260"/><line x1="66" y1="60" x2="66" y2="260"/><line x1="78" y1="60" x2="78" y2="260"/><line x1="90" y1="60" x2="90" y2="260"/><line x1="102" y1="60" x2="102" y2="260"/><line x1="114" y1="60" x2="114" y2="260"/><line x1="126" y1="60" x2="126" y2="260"/><line x1="138" y1="60" x2="138" y2="260"/><line x1="150" y1="60" x2="150" y2="260"/><line x1="162" y1="60" x2="162" y2="260"/><line x1="174" y1="60" x2="174" y2="260"/><line x1="186" y1="60" x2="186" y2="260"/><line x1="198" y1="60" x2="198" y2="260"/><line x1="210" y1="60" x2="210" y2="260"/><line x1="222" y1="60" x2="222" y2="260"/><line x1="234" y1="60" x2="234" y2="260"/><line x1="246" y1="60" x2="246" y2="260"/><line x1="258" y1="60" x2="258" y2="260"/><line x1="270" y1="60" x2="270" y2="260"/><line x1="282" y1="60" x2="282" y2="260"/><line x1="294" y1="60" x2="294" y2="260"/><line x1="306" y1="60" x2="306" y2="260"/><line x1="318" y1="60" x2="318" y2="260"/><line x1="330" y1="60" x2="330" y2="260"/><line x1="342" y1="60" x2="342" y2="260"/><line x1="354" y1="60" x2="354" y2="260"/><line x1="366" y1="60" x2="366" y2="260"/><line x1="370" y1="60" x2="370" y2="260"/>
-          </g>
-          <ellipse cx="200" cy="260" rx="180" ry="30" fill="url(#kg-gold)" opacity="0.5"/>
-          <!-- front dark face -->
-          <ellipse cx="200" cy="160" rx="88" ry="72" fill="url(#kg-gold-front)" stroke="#3a2710" stroke-width="1"/>
-          <!-- tiny top notch -->
-          <circle cx="50" cy="48" r="3" fill="#1a1005"/>
-        </svg>
+        <img src="finish-brass-wood.jpg" alt="Antique Brass — Heritage brass with wood inlay" loading="lazy" style="width:88%; height:88%; object-fit:cover; object-position:center; border-radius:10px; filter:drop-shadow(0 30px 40px rgba(0,0,0,0.85)); box-shadow:0 0 0 1px rgba(201,154,79,0.2);">
         <div class="finish-label"><span>01 / 05</span><span class="fl-name">Antique Brass</span><span>Fluted Column</span></div>
       </div>
 
       <!-- BLACK -->
       <div class="knob-layer" data-layer="black">
-        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" aria-label="Midnight Matte finish">
-          <defs>
-            <linearGradient id="kg-blk" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1f1c20"/>
-              <stop offset="50%" stop-color="#363339"/>
-              <stop offset="100%" stop-color="#0a0a0c"/>
-            </linearGradient>
-            <linearGradient id="kg-blk-top" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2a2730"/>
-              <stop offset="100%" stop-color="#050406"/>
-            </linearGradient>
-          </defs>
-          <ellipse cx="200" cy="60" rx="180" ry="30" fill="url(#kg-blk-top)" stroke="#0a0a0c" stroke-width="1"/>
-          <rect x="20" y="60" width="360" height="200" fill="url(#kg-blk)"/>
-          <g fill="none" stroke="rgba(0,0,0,0.85)" stroke-width="0.6">
-            <line x1="30" y1="60" x2="30" y2="260"/><line x1="42" y1="60" x2="42" y2="260"/><line x1="54" y1="60" x2="54" y2="260"/><line x1="66" y1="60" x2="66" y2="260"/><line x1="78" y1="60" x2="78" y2="260"/><line x1="90" y1="60" x2="90" y2="260"/><line x1="102" y1="60" x2="102" y2="260"/><line x1="114" y1="60" x2="114" y2="260"/><line x1="126" y1="60" x2="126" y2="260"/><line x1="138" y1="60" x2="138" y2="260"/><line x1="150" y1="60" x2="150" y2="260"/><line x1="162" y1="60" x2="162" y2="260"/><line x1="174" y1="60" x2="174" y2="260"/><line x1="186" y1="60" x2="186" y2="260"/><line x1="198" y1="60" x2="198" y2="260"/><line x1="210" y1="60" x2="210" y2="260"/><line x1="222" y1="60" x2="222" y2="260"/><line x1="234" y1="60" x2="234" y2="260"/><line x1="246" y1="60" x2="246" y2="260"/><line x1="258" y1="60" x2="258" y2="260"/><line x1="270" y1="60" x2="270" y2="260"/><line x1="282" y1="60" x2="282" y2="260"/><line x1="294" y1="60" x2="294" y2="260"/><line x1="306" y1="60" x2="306" y2="260"/><line x1="318" y1="60" x2="318" y2="260"/><line x1="330" y1="60" x2="330" y2="260"/><line x1="342" y1="60" x2="342" y2="260"/><line x1="354" y1="60" x2="354" y2="260"/><line x1="366" y1="60" x2="366" y2="260"/>
-          </g>
-          <ellipse cx="200" cy="260" rx="180" ry="30" fill="#050406" opacity="0.6"/>
-          <ellipse cx="200" cy="160" rx="88" ry="72" fill="#0c0a0e" stroke="#050406" stroke-width="1"/>
-          <circle cx="50" cy="48" r="3" fill="#050406"/>
-        </svg>
+        <img src="finish-modern-levers.jpg" alt="Midnight Matte — Modern lever series" loading="lazy" style="width:88%; height:88%; object-fit:cover; object-position:center; border-radius:10px; filter:drop-shadow(0 30px 40px rgba(0,0,0,0.85)); box-shadow:0 0 0 1px rgba(201,154,79,0.2);">
         <div class="finish-label"><span>02 / 05</span><span class="fl-name">Midnight Matte</span><span>Fluted Column</span></div>
       </div>
 
       <!-- CHROME -->
       <div class="knob-layer" data-layer="chrome">
-        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" aria-label="Brushed Nickel finish">
-          <defs>
-            <linearGradient id="kg-chr" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#6b6b70"/>
-              <stop offset="40%" stop-color="#c5c5c9"/>
-              <stop offset="60%" stop-color="#e4e4e7"/>
-              <stop offset="100%" stop-color="#4a4a4e"/>
-            </linearGradient>
-            <linearGradient id="kg-chr-top" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#9a9aa0"/>
-              <stop offset="100%" stop-color="#3e3e42"/>
-            </linearGradient>
-          </defs>
-          <ellipse cx="200" cy="60" rx="180" ry="30" fill="url(#kg-chr-top)" stroke="#2a2a2e" stroke-width="1"/>
-          <rect x="20" y="60" width="360" height="200" fill="url(#kg-chr)"/>
-          <g fill="none" stroke="rgba(30,30,34,0.85)" stroke-width="0.6">
-            <line x1="30" y1="60" x2="30" y2="260"/><line x1="42" y1="60" x2="42" y2="260"/><line x1="54" y1="60" x2="54" y2="260"/><line x1="66" y1="60" x2="66" y2="260"/><line x1="78" y1="60" x2="78" y2="260"/><line x1="90" y1="60" x2="90" y2="260"/><line x1="102" y1="60" x2="102" y2="260"/><line x1="114" y1="60" x2="114" y2="260"/><line x1="126" y1="60" x2="126" y2="260"/><line x1="138" y1="60" x2="138" y2="260"/><line x1="150" y1="60" x2="150" y2="260"/><line x1="162" y1="60" x2="162" y2="260"/><line x1="174" y1="60" x2="174" y2="260"/><line x1="186" y1="60" x2="186" y2="260"/><line x1="198" y1="60" x2="198" y2="260"/><line x1="210" y1="60" x2="210" y2="260"/><line x1="222" y1="60" x2="222" y2="260"/><line x1="234" y1="60" x2="234" y2="260"/><line x1="246" y1="60" x2="246" y2="260"/><line x1="258" y1="60" x2="258" y2="260"/><line x1="270" y1="60" x2="270" y2="260"/><line x1="282" y1="60" x2="282" y2="260"/><line x1="294" y1="60" x2="294" y2="260"/><line x1="306" y1="60" x2="306" y2="260"/><line x1="318" y1="60" x2="318" y2="260"/><line x1="330" y1="60" x2="330" y2="260"/><line x1="342" y1="60" x2="342" y2="260"/><line x1="354" y1="60" x2="354" y2="260"/><line x1="366" y1="60" x2="366" y2="260"/>
-          </g>
-          <ellipse cx="200" cy="260" rx="180" ry="30" fill="#2a2a2e" opacity="0.5"/>
-          <ellipse cx="200" cy="160" rx="88" ry="72" fill="#b3b3b7" stroke="#4a4a4e" stroke-width="1"/>
-          <ellipse cx="200" cy="160" rx="70" ry="55" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <circle cx="50" cy="48" r="3" fill="#1a1a1e"/>
-        </svg>
+        <img src="finish-premium-levers.jpg" alt="Brushed Nickel — Premium satin chrome lever" loading="lazy" style="width:88%; height:88%; object-fit:cover; object-position:center; border-radius:10px; filter:drop-shadow(0 30px 40px rgba(0,0,0,0.85)); box-shadow:0 0 0 1px rgba(201,154,79,0.2);">
         <div class="finish-label"><span>03 / 05</span><span class="fl-name">Brushed Nickel</span><span>Fluted Column</span></div>
       </div>
 
       <!-- COPPER -->
       <div class="knob-layer" data-layer="copper">
-        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" aria-label="Warm Copper finish">
-          <defs>
-            <linearGradient id="kg-cop" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#5a2e15"/>
-              <stop offset="40%" stop-color="#c4774a"/>
-              <stop offset="60%" stop-color="#e8a076"/>
-              <stop offset="100%" stop-color="#3a1e0d"/>
-            </linearGradient>
-            <linearGradient id="kg-cop-top" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#8a9196"/>
-              <stop offset="100%" stop-color="#4a4e54"/>
-            </linearGradient>
-          </defs>
-          <ellipse cx="200" cy="60" rx="180" ry="30" fill="url(#kg-cop-top)" stroke="#2a2e32" stroke-width="1"/>
-          <rect x="20" y="60" width="360" height="200" fill="url(#kg-cop)"/>
-          <g fill="none" stroke="rgba(40,18,8,0.85)" stroke-width="0.6">
-            <line x1="30" y1="60" x2="30" y2="260"/><line x1="42" y1="60" x2="42" y2="260"/><line x1="54" y1="60" x2="54" y2="260"/><line x1="66" y1="60" x2="66" y2="260"/><line x1="78" y1="60" x2="78" y2="260"/><line x1="90" y1="60" x2="90" y2="260"/><line x1="102" y1="60" x2="102" y2="260"/><line x1="114" y1="60" x2="114" y2="260"/><line x1="126" y1="60" x2="126" y2="260"/><line x1="138" y1="60" x2="138" y2="260"/><line x1="150" y1="60" x2="150" y2="260"/><line x1="162" y1="60" x2="162" y2="260"/><line x1="174" y1="60" x2="174" y2="260"/><line x1="186" y1="60" x2="186" y2="260"/><line x1="198" y1="60" x2="198" y2="260"/><line x1="210" y1="60" x2="210" y2="260"/><line x1="222" y1="60" x2="222" y2="260"/><line x1="234" y1="60" x2="234" y2="260"/><line x1="246" y1="60" x2="246" y2="260"/><line x1="258" y1="60" x2="258" y2="260"/><line x1="270" y1="60" x2="270" y2="260"/><line x1="282" y1="60" x2="282" y2="260"/><line x1="294" y1="60" x2="294" y2="260"/><line x1="306" y1="60" x2="306" y2="260"/><line x1="318" y1="60" x2="318" y2="260"/><line x1="330" y1="60" x2="330" y2="260"/><line x1="342" y1="60" x2="342" y2="260"/><line x1="354" y1="60" x2="354" y2="260"/><line x1="366" y1="60" x2="366" y2="260"/>
-          </g>
-          <ellipse cx="200" cy="260" rx="180" ry="30" fill="#3a1e0d" opacity="0.5"/>
-          <ellipse cx="200" cy="160" rx="88" ry="72" fill="#b3b3b7" stroke="#2a2e32" stroke-width="1"/>
-          <circle cx="50" cy="48" r="3" fill="#1a1008"/>
-        </svg>
+        <img src="finish-pull-collection.jpg" alt="Warm Copper — Polished copper pull collection" loading="lazy" style="width:88%; height:88%; object-fit:cover; object-position:center; border-radius:10px; filter:drop-shadow(0 30px 40px rgba(0,0,0,0.85)); box-shadow:0 0 0 1px rgba(201,154,79,0.2);">
         <div class="finish-label"><span>04 / 05</span><span class="fl-name">Warm Copper</span><span>Fluted Column</span></div>
       </div>
 
       <!-- MIXED (gold top, black body, gold front cap) -->
       <div class="knob-layer" data-layer="mixed">
-        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" aria-label="Gold on Black finish">
-          <defs>
-            <linearGradient id="kg-mx-top" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#8a5f24"/>
-              <stop offset="50%" stop-color="#e8c17a"/>
-              <stop offset="100%" stop-color="#5c3e16"/>
-            </linearGradient>
-            <linearGradient id="kg-mx-body" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1f1c20"/>
-              <stop offset="50%" stop-color="#363339"/>
-              <stop offset="100%" stop-color="#0a0a0c"/>
-            </linearGradient>
-            <radialGradient id="kg-mx-front" cx="0.5" cy="0.5" r="0.5">
-              <stop offset="0%" stop-color="#d9b26d"/>
-              <stop offset="70%" stop-color="#8a5f24"/>
-              <stop offset="100%" stop-color="#3a2710"/>
-            </radialGradient>
-          </defs>
-          <ellipse cx="200" cy="60" rx="180" ry="30" fill="url(#kg-mx-top)" stroke="#3a2710" stroke-width="1"/>
-          <rect x="20" y="60" width="360" height="200" fill="url(#kg-mx-body)"/>
-          <g fill="none" stroke="rgba(0,0,0,0.85)" stroke-width="0.6">
-            <line x1="30" y1="60" x2="30" y2="260"/><line x1="42" y1="60" x2="42" y2="260"/><line x1="54" y1="60" x2="54" y2="260"/><line x1="66" y1="60" x2="66" y2="260"/><line x1="78" y1="60" x2="78" y2="260"/><line x1="90" y1="60" x2="90" y2="260"/><line x1="102" y1="60" x2="102" y2="260"/><line x1="114" y1="60" x2="114" y2="260"/><line x1="126" y1="60" x2="126" y2="260"/><line x1="138" y1="60" x2="138" y2="260"/><line x1="150" y1="60" x2="150" y2="260"/><line x1="162" y1="60" x2="162" y2="260"/><line x1="174" y1="60" x2="174" y2="260"/><line x1="186" y1="60" x2="186" y2="260"/><line x1="198" y1="60" x2="198" y2="260"/><line x1="210" y1="60" x2="210" y2="260"/><line x1="222" y1="60" x2="222" y2="260"/><line x1="234" y1="60" x2="234" y2="260"/><line x1="246" y1="60" x2="246" y2="260"/><line x1="258" y1="60" x2="258" y2="260"/><line x1="270" y1="60" x2="270" y2="260"/><line x1="282" y1="60" x2="282" y2="260"/><line x1="294" y1="60" x2="294" y2="260"/><line x1="306" y1="60" x2="306" y2="260"/><line x1="318" y1="60" x2="318" y2="260"/><line x1="330" y1="60" x2="330" y2="260"/><line x1="342" y1="60" x2="342" y2="260"/><line x1="354" y1="60" x2="354" y2="260"/><line x1="366" y1="60" x2="366" y2="260"/>
-          </g>
-          <ellipse cx="200" cy="260" rx="180" ry="30" fill="#050406" opacity="0.55"/>
-          <ellipse cx="200" cy="160" rx="88" ry="72" fill="url(#kg-mx-front)" stroke="#3a2710" stroke-width="1"/>
-          <circle cx="50" cy="48" r="3" fill="#050406"/>
-        </svg>
+        <img src="finish-window-handles.jpg" alt="Gold on Black — Designer multi-tone window handles" loading="lazy" style="width:88%; height:88%; object-fit:cover; object-position:center; border-radius:10px; filter:drop-shadow(0 30px 40px rgba(0,0,0,0.85)); box-shadow:0 0 0 1px rgba(201,154,79,0.2);">
         <div class="finish-label"><span>05 / 05</span><span class="fl-name">Gold on Black</span><span>Bicolour Edition</span></div>
       </div>
     </div>
