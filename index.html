@@ -1,654 +1,461 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aadhaya Locks and Fittings | Premium Door Handles, Cabinet Handles and Hardware Fittings</title>
-  <meta name="description" content="Aadhaya Locks and Fittings is a Rajkot-based manufacturer of premium door handles, cabinet handles, sofa legs and lock fittings for dealers, designers and bulk enquiries across India.">
-  <meta name="keywords" content="Aadhaya Locks and Fittings, door handles Rajkot, cabinet handles, zinc handle, ss handle, sofa leg, lock body cylinder, hardware fittings manufacturer">
-  <meta name="author" content="Aadhaya Locks and Fittings">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0b0d11">
-  <link rel="canonical" href="https://aadhayahardware.github.io/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>AADHAYA — Luxury Stainless Steel Hardware Fittings | Rajkot</title>
+<meta name="description" content="AADHAYA Locks & Fittings — premium stainless steel cabinet handles, mortise handles, concealed handles, knobs & architectural hardware. Crafted in Rajkot since 2012.">
+<meta property="og:title" content="AADHAYA — Crafting Luxury in Every Detail">
+<meta property="og:description" content="Premium hardware fittings. Cabinet, mortise & concealed handles, knobs and architectural hardware — in 6 signature finishes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aadhayahardware.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#0a0a0b; --bg2:#101013; --card:#141417;
+ --gold:#C8A84A; --gold2:#E6CE84; --blue:#2E7FE0; --blue2:#5AA0F7;
+ --txt:#ECEAE4; --mut:#97948c; --line:rgba(255,255,255,.08);
+ --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.eyebrow{font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold2)}
+.serif{font-family:var(--serif)}
+section{position:relative}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Aadhaya Locks and Fittings | Premium Hardware Collections from Rajkot">
-  <meta property="og:description" content="Real product collections, catalogue pages, finish options and enquiry-ready hardware content for dealers and project buyers.">
-  <meta property="og:url" content="https://aadhayahardware.github.io/">
-  <meta property="og:image" content="https://aadhayahardware.github.io/finish-pull-collection.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aadhaya Locks and Fittings | Premium Hardware Collections from Rajkot">
-  <meta name="twitter:description" content="Premium door handles, cabinet handles, sofa legs and hardware fittings with downloadable catalogues and direct enquiry options.">
-  <meta name="twitter:image" content="https://aadhayahardware.github.io/finish-pull-collection.jpg">
+/* ---------- HEADER ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s}
+.nav{display:flex;align-items:center;justify-content:space-between;margin:14px auto;padding:10px 18px;border:1px solid var(--line);border-radius:60px;background:rgba(12,12,14,.55);backdrop-filter:blur(14px);max-width:1180px}
+.nav .brand{display:flex;align-items:center;gap:10px}
+.nav .brand img{height:34px;width:auto}
+.nav .brand b{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:2px}
+.nav .links{display:flex;gap:30px}
+.nav .links a{font-size:12.5px;letter-spacing:1px;color:var(--mut);transition:.25s;position:relative}
+.nav .links a:hover{color:var(--txt)}
+.nav .links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:.3s}
+.nav .links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;letter-spacing:1px;padding:10px 20px;border-radius:40px;cursor:pointer;border:1px solid transparent;transition:.3s;font-family:var(--sans)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1405;font-weight:500}
+.btn-gold:hover{box-shadow:0 8px 30px rgba(200,168,74,.35);transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);color:var(--txt)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.burger span{width:22px;height:1.5px;background:var(--txt);transition:.3s}
+.mnav{position:fixed;inset:0;z-index:55;background:rgba(8,8,10,.97);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;opacity:0;pointer-events:none;transition:.4s}
+.mnav.open{opacity:1;pointer-events:auto}
+.mnav a{font-family:var(--serif);font-size:30px;color:var(--txt)}
+.mnav a:hover{color:var(--gold2)}
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Aadhaya Locks and Fittings",
-    "image": "https://aadhayahardware.github.io/finish-pull-collection.jpg",
-    "logo": "https://aadhayahardware.github.io/finish-pull-collection.jpg",
-    "url": "https://aadhayahardware.github.io/",
-    "telephone": "+91-99132-35199",
-    "email": "aadhayahardware@gmail.com",
-    "description": "Rajkot-based premium hardware manufacturer serving dealers, designers and bulk buyers with door handles, cabinet handles, sofa legs and lock fittings under the Aadhaya Locks and Fittings brand.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Patel Nagar",
-      "addressLocality": "Rajkot",
-      "addressRegion": "Gujarat",
-      "postalCode": "360001",
-      "addressCountry": "IN"
-    },
-    "areaServed": "India",
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "09:00",
-      "closes": "19:00"
-    }]
-  }
-  </script>
+/* ---------- HERO ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 22px 70px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,#1a1710 0%,#0a0a0b 60%);z-index:0}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 65%,rgba(46,127,224,.10),transparent 70%)}
+.hero-inner{position:relative;z-index:2;width:100%}
+.hero .eyebrow{margin-bottom:18px}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,8vw,86px);line-height:1.02;letter-spacing:.5px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero .sub{color:var(--mut);font-size:clamp(13px,2.2vw,16px);letter-spacing:.5px;margin:22px auto 0;max-width:520px}
+.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.hero-prod{position:relative;z-index:1;margin:-6% auto 0;width:min(560px,82vw);filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
+.ghostword{position:absolute;z-index:0;top:46%;left:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-weight:700;font-size:clamp(80px,22vw,260px);letter-spacing:6px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.10);white-space:nowrap;pointer-events:none}
+.scrollcue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;font-size:10px;letter-spacing:3px;color:var(--mut);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollcue i{width:1px;height:36px;background:linear-gradient(var(--gold),transparent);animation:cue 1.8s infinite}
+@keyframes cue{0%{opacity:.2;transform:scaleY(.4)}50%{opacity:1}100%{opacity:.2;transform:scaleY(.4)}}
 
-  <link rel="stylesheet" href="style.css">
-  <script src="site.js" defer></script>
+/* ---------- SECTION TITLES ---------- */
+.sec{padding:clamp(70px,11vw,140px) 0}
+.sec-head{text-align:center;margin-bottom:54px}
+.sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,5.5vw,56px);line-height:1.08;margin-top:12px}
+.sec-head p{color:var(--mut);font-size:14px;margin-top:14px;max-width:480px;margin-left:auto;margin-right:auto}
+
+/* ---------- MAGIC FINISH ---------- */
+.magic{background:linear-gradient(180deg,#0a0a0b,#0e0e11 50%,#0a0a0b)}
+.vit{max-width:760px;margin:0 auto;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:radial-gradient(120% 120% at 50% 0%,#f4f1ec,#d8d3c9);position:relative}
+.vit-stage{position:relative;aspect-ratio:760/300;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none}
+.vit-stage img{position:absolute;width:86%;left:7%;top:50%;transform:translateY(-50%);transition:opacity .55s ease,filter .55s ease}
+.vit-sweep{position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%);pointer-events:none}
+.vit-stage.sweep .vit-sweep{animation:sweep .8s ease}
+@keyframes sweep{to{transform:translateX(120%)}}
+.vit-tap{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8a8276}
+.fin-name{text-align:center;font-family:var(--serif);font-size:26px;margin-top:24px;color:var(--gold2);height:32px}
+.swatches{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.sw{width:42px;height:42px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:.3s;position:relative}
+.sw.on{border-color:var(--gold);transform:scale(1.12)}
+.sw:hover{transform:scale(1.12)}
+.sw span{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.5px;color:var(--mut);white-space:nowrap;opacity:0;transition:.2s}
+.sw:hover span{opacity:1}
+
+/* ---------- COLLECTIONS ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ccard{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);aspect-ratio:4/4.4;cursor:pointer}
+.ccard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s}
+.ccard:hover img{transform:scale(1.07)}
+.ccard::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,9,.92) 4%,rgba(7,7,9,.25) 40%,transparent 70%)}
+.ccard .cinfo{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px}
+.ccard .cinfo b{font-family:var(--serif);font-size:21px;font-weight:500;display:block}
+.ccard .cinfo span{font-size:11px;letter-spacing:1.5px;color:var(--gold2);text-transform:uppercase}
+.ccard .arrow{position:absolute;top:16px;right:16px;z-index:2;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold2);opacity:0;transform:translateX(-6px);transition:.4s}
+.ccard:hover .arrow{opacity:1;transform:none}
+
+/* ---------- CATALOGUE / BOOK ---------- */
+.book-sec{background:radial-gradient(100% 80% at 50% 0,#13110b,#0a0a0b 65%)}
+.book-cta{display:flex;gap:50px;align-items:center;justify-content:center;flex-wrap:wrap}
+.book-cover{position:relative;width:min(300px,72vw);aspect-ratio:1000/1413;border-radius:8px;overflow:hidden;cursor:pointer;box-shadow:0 30px 70px rgba(0,0,0,.6);transition:.5s;border:1px solid rgba(200,168,74,.25)}
+.book-cover img{width:100%;height:100%;object-fit:cover}
+.book-cover:hover{transform:translateY(-8px) rotateZ(-1deg);box-shadow:0 40px 90px rgba(0,0,0,.7)}
+.book-cover .spine{position:absolute;left:0;top:0;bottom:0;width:14px;background:linear-gradient(90deg,rgba(0,0,0,.5),transparent)}
+.book-cover .open-badge{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(8,8,10,.4);opacity:0;transition:.4s}
+.book-cover:hover .open-badge{opacity:1}
+.open-badge b{border:1px solid var(--gold2);color:var(--gold2);padding:11px 22px;border-radius:40px;font-size:12px;letter-spacing:2px;text-transform:uppercase;background:rgba(8,8,10,.5)}
+.book-copy{max-width:340px}
+.book-copy h3{font-family:var(--serif);font-size:34px;font-weight:500;line-height:1.1}
+.book-copy p{color:var(--mut);font-size:14px;margin:16px 0 24px}
+
+/* flipbook overlay */
+.fb-ov{position:fixed;inset:0;z-index:200;background:rgba(6,6,8,.96);backdrop-filter:blur(6px);display:none;flex-direction:column;align-items:center;justify-content:center}
+.fb-ov.open{display:flex}
+#book{margin:auto}
+.fb-page{background:#fff}
+.fb-page img{width:100%;height:100%;object-fit:contain;background:#fff}
+.fb-bar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:rgba(18,18,20,.85);border:1px solid var(--line);border-radius:40px;padding:8px 10px;z-index:210}
+.fb-bar button{background:none;border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:16px;transition:.25s}
+.fb-bar button:hover{border-color:var(--gold);color:var(--gold2)}
+.fb-bar .pg{font-size:12px;letter-spacing:1px;color:var(--mut);min-width:54px;text-align:center}
+.fb-close{position:fixed;top:18px;right:20px;z-index:210;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(18,18,20,.85);color:var(--txt);font-size:20px;cursor:pointer}
+.fb-close:hover{border-color:var(--gold);color:var(--gold2)}
+/* fallback pager */
+.fb-fallback{display:none;width:100vw;height:100svh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.fb-fallback.show{display:flex}
+.fb-fallback img{height:84svh;margin:auto 8px;scroll-snap-align:center;align-self:center;border-radius:6px}
+
+/* ---------- STORY / STATS ---------- */
+.story{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.story-img{border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.story h2{font-family:var(--serif);font-size:clamp(28px,4.4vw,46px);font-weight:500;line-height:1.12}
+.story p{color:var(--mut);font-size:14.5px;margin-top:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.stat{text-align:center;padding:18px 6px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.stat b{font-family:var(--serif);font-size:30px;color:var(--gold2);display:block}
+.stat span{font-size:9.5px;letter-spacing:1px;color:var(--mut);text-transform:uppercase}
+
+/* ---------- CONTACT ---------- */
+.contact{background:linear-gradient(180deg,#0a0a0b,#0e0e11)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:46px}
+.cinfo-row{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.cinfo-row .lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);min-width:88px;padding-top:3px}
+.cinfo-row .val{font-size:14.5px;color:var(--txt)}
+.cpanel{border:1px solid var(--line);border-radius:18px;padding:34px;background:var(--card);text-align:center;display:flex;flex-direction:column;justify-content:center}
+.cpanel h3{font-family:var(--serif);font-size:30px;font-weight:500}
+.cpanel p{color:var(--mut);font-size:13.5px;margin:12px 0 22px}
+.cpanel .btn{justify-content:center}
+.wa{background:#25D366;color:#04210f;font-weight:500}
+.wa:hover{box-shadow:0 8px 30px rgba(37,211,102,.3);transform:translateY(-2px)}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:54px 0 30px;text-align:center}
+footer img{height:54px;margin:0 auto 16px}
+footer .tag{color:var(--mut);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+footer .small{color:#67645d;font-size:12px;margin-top:18px;line-height:1.8}
+.float-wa{position:fixed;right:18px;bottom:18px;z-index:80;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:.3s}
+.float-wa:hover{transform:scale(1.08)}
+
+@media(max-width:860px){
+ .nav .links{display:none}
+ .nav .btn-gold{display:none}
+ .burger{display:flex}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .story{grid-template-columns:1fr;gap:30px}
+ .cgrid{grid-template-columns:1fr;gap:28px}
+ .vit-stage{aspect-ratio:760/360}
+ .ghostword{font-size:clamp(60px,26vw,140px)}
+}
+@media(max-width:520px){
+ .grid{grid-template-columns:1fr 1fr;gap:12px}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .nav{margin:10px 12px;padding:9px 14px}
+ .wrap{padding:0 16px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
-  <div class="page-shell">
-    <div class="top-strip">Premium hardware manufacturer in Rajkot | Dealer enquiries | Bulk project support</div>
 
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="#home" aria-label="Aadhaya Locks and Fittings home">
-          <img class="brand-logo" src="aadhaya-locks-fittings-logo.png" alt="Aadhaya Locks and Fittings logo">
-          <span class="brand-support">Est. 2012 | Yatin Goswami</span>
-        </a>
-
-        <nav class="desktop-nav" aria-label="Primary">
-          <a href="#products">Products</a>
-          <a href="#applications">Applications</a>
-          <a href="#finishes">Finishes</a>
-          <a href="#catalogues">Catalogues</a>
-          <a href="#dealers">Dealer Support</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="header-actions">
-          <a class="button-secondary" href="ss-handle.pdf" target="_blank" rel="noopener">View Catalogue</a>
-          <a class="button" href="https://wa.me/918153888813?text=Hello%20Aadhaya%20Locks%20and%20Fittings,%20I%20want%20to%20discuss%20products." target="_blank" rel="noopener">WhatsApp Sales</a>
-          <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-      <button class="mobile-close" id="mobileClose" aria-label="Close menu">X</button>
-      <a href="#products">Products</a>
-      <a href="#applications">Applications</a>
-      <a href="#finishes">Finishes</a>
-      <a href="#catalogues">Catalogues</a>
-      <a href="#dealers">Dealer Support</a>
-      <a href="#contact">Contact</a>
-      <a class="button" href="https://wa.me/918153888813?text=Hello%20Aadhaya%20Locks%20and%20Fittings,%20I%20want%20to%20discuss%20products." target="_blank" rel="noopener">WhatsApp Sales</a>
-    </nav>
-
-    <main>
-      <section class="hero section" id="home">
-        <div class="section-inner hero-grid">
-          <div class="hero-copy reveal">
-            <span class="eyebrow">Built in Rajkot | Product-first collections</span>
-            <h1>Premium hardware collections with <strong>real product depth</strong>, clear pricing support and direct dealer enquiry.</h1>
-            <p>
-              Aadhaya Locks and Fittings serves dealers, interior buyers and project teams with door handles, cabinet handles,
-              sofa legs and lock fittings backed by downloadable catalogues, finish variety and WhatsApp-first response.
-            </p>
-
-            <div class="hero-actions">
-              <a class="button" href="#products">Explore Products</a>
-              <a class="button-secondary" href="#catalogues">Open Catalogues</a>
-            </div>
-
-            <div class="hero-chips">
-              <div class="chip">Founded by Yatin Goswami in 2012 with 12+ years of experience in premium hardware.</div>
-              <div class="chip">Built for door hardware, cabinet hardware, furniture fittings and trade buyers.</div>
-              <div class="chip">Multiple finish directions already visible in live catalogue material.</div>
-              <div class="chip">Bulk enquiry, catalogue sharing and WhatsApp response all from one page.</div>
-            </div>
-          </div>
-
-          <div class="hero-stage reveal" id="heroStage">
-            <div class="hero-badge">Main Door Pull Handles</div>
-            <div class="hero-outline">Hardware that looks premium before the door even opens</div>
-            <div class="hero-ring" aria-hidden="true"></div>
-            <div class="hero-stage-note">Two signature main door handle finishes</div>
-            <figure class="hero-handle back" data-depth="10">
-              <img src="hero-handle-black-gold.jpg" alt="Black and gold premium pull handle">
-              <figcaption>Black and Gold Main Door</figcaption>
-            </figure>
-            <figure class="hero-handle front" data-depth="18">
-              <img src="hero-handle-brass.jpg" alt="Brass premium pull handle">
-              <figcaption>Brass Main Door</figcaption>
-            </figure>
-            <div class="hero-caption">
-              <strong>Dual main door showcase</strong>
-              <span>Two hero handles sit side by side with glow, depth and controlled motion so the landing page immediately feels product-led.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-inner proof-grid">
-          <div class="proof-card reveal">
-            <strong>2012</strong>
-            <span>Yatin Goswami's 2012 foundation story now appears as a clear trust signal inside the brand journey.</span>
-          </div>
-          <div class="proof-card reveal">
-            <strong>500+</strong>
-            <span>Dealer network language is already part of the site story and now sits closer to product content.</span>
-          </div>
-          <div class="proof-card reveal">
-            <strong>4</strong>
-            <span>Live downloadable catalogue groups available on-page: S.S., Zinc, Sofa Leg, Lock Body Cylinder.</span>
-          </div>
-          <div class="proof-card reveal">
-            <strong>Direct</strong>
-            <span>Clear catalogue access, visible finish variety and labelled contact routes now sit much closer to the product content.</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="about">
-        <div class="section-inner story-grid">
-          <div class="story-copy reveal">
-            <div class="section-head">
-              <span class="section-label">Brand Story</span>
-              <h2>Built in Rajkot for buyers who need <strong>real product visibility</strong>.</h2>
-              <p>
-                Aadhaya Locks and Fittings focuses on premium door handles, cabinet handles, sofa legs and lock fittings with
-                catalogue-driven selection, finish clarity and quick dealer communication built into the experience.
-              </p>
-            </div>
-
-            <div class="story-note">
-              <strong>Built for practical selection</strong>
-              This business is based in Patel Nagar, Rajkot and presents its range in a way that helps dealers, interior
-              buyers and project enquiries compare categories faster and move to conversation sooner.
-            </div>
-
-            <div class="story-list">
-              <div class="story-item">
-                <strong>For dealers</strong>
-                Downloadable PDF support, catalogue previews, WhatsApp-first follow-up and cleaner product grouping.
-              </div>
-              <div class="story-item">
-                <strong>For designers</strong>
-                Finish variety, visible model styling and easier scanning between cabinet, pull and furniture categories.
-              </div>
-              <div class="story-item">
-                <strong>For bulk buyers</strong>
-                Direct contact points, labelled phone and WhatsApp channels, plus custom finish enquiry prompts.
-              </div>
-              <div class="story-item">
-                <strong>For the brand</strong>
-                The homepage now presents the brand with stronger visuals, clearer range structure and a more serious premium position.
-              </div>
-              <div class="story-item">
-                <strong>Founder trust</strong>
-                Yatin Goswami and the 2012 foundation year now sit inside the story section where serious buyers expect brand credibility.
-              </div>
-            </div>
-          </div>
-
-          <div class="story-visual-stack reveal">
-            <div class="visual-card large">
-              <img src="assets/catalog-pages/ss-page-2.png" alt="Stainless steel cabinet handle catalogue page">
-              <span class="visual-badge">Real catalogue page</span>
-            </div>
-            <div class="visual-card">
-              <img src="assets/catalog-pages/zinc-page-7.png" alt="Zinc handle catalogue page">
-              <span class="visual-badge">Zinc handle range</span>
-            </div>
-            <div class="visual-card">
-              <img src="assets/catalog-pages/sofa-page-6.png" alt="Sofa leg catalogue page">
-              <span class="visual-badge">Furniture fitting</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="products">
-        <div class="section-inner">
-          <div class="section-head reveal">
-            <span class="section-label">Product Categories</span>
-            <h2>Product families organised for <strong>faster category scanning</strong>.</h2>
-            <p>
-              These cards use current catalogue preview material so buyers immediately understand the types of hardware
-              available before they open a PDF or send an enquiry.
-            </p>
-          </div>
-
-          <div class="category-grid">
-            <article class="product-card reveal">
-              <div class="media-frame"><img src="assets/pdf-previews/zinc-3.png" alt="Zinc alloy cabinet handles"></div>
-              <div class="card-copy">
-                <span class="card-tag">Category</span>
-                <h3>Zinc Alloy Handles</h3>
-                <p>Cabinet-focused range with decorative profiles, finish variety and catalogue-led selection support.</p>
-              </div>
-            </article>
-
-            <article class="product-card reveal">
-              <div class="media-frame"><img src="assets/pdf-previews/ss-2.png" alt="Stainless steel handle collection"></div>
-              <div class="card-copy">
-                <span class="card-tag">Category</span>
-                <h3>S.S. Handles</h3>
-                <p>Linear and cabinet handle directions for clean interiors, wardrobe runs and premium functional use.</p>
-              </div>
-            </article>
-
-            <article class="product-card reveal">
-              <div class="media-frame"><img src="assets/pdf-previews/lock-1.png" alt="Lock body and cylinder price list preview"></div>
-              <div class="card-copy">
-                <span class="card-tag">Category</span>
-                <h3>Lock Bodies and Cylinders</h3>
-                <p>Price-list-led support for lock body and cylinder enquiries, quick reference and trade sharing.</p>
-              </div>
-            </article>
-
-            <article class="product-card reveal">
-              <div class="media-frame"><img src="assets/pdf-previews/ss-3.png" alt="Linear pull handle range"></div>
-              <div class="card-copy">
-                <span class="card-tag">Category</span>
-                <h3>Pull Handle Range</h3>
-                <p>Long-format pulls in premium finishes for wardrobes, larger shutters and statement main door detailing.</p>
-              </div>
-            </article>
-
-            <article class="product-card reveal">
-              <div class="media-frame"><img src="assets/pdf-previews/zinc-1.png" alt="Premium cabinet series preview"></div>
-              <div class="card-copy">
-                <span class="card-tag">Category</span>
-                <h3>Premium Cabinet Series</h3>
-                <p>Model-rich cabinet collection designed to help dealers show more style variety from fewer samples.</p>
-              </div>
-            </article>
-
-            <article class="product-card reveal">
-              <div class="media-frame"><img src="assets/pdf-previews/sofa-3.png" alt="Sofa leg furniture hardware"></div>
-              <div class="card-copy">
-                <span class="card-tag">Category</span>
-                <h3>Sofa Leg Collection</h3>
-                <p>Furniture fitting hardware that extends the brand beyond door and cabinet categories into interior detailing.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="applications">
-        <div class="section-inner">
-          <div class="section-head reveal">
-            <span class="section-label">Applications</span>
-            <h2>Applications that show <strong>where the hardware fits</strong>.</h2>
-            <p>
-              Cabinetry, feature handle styling and furniture fittings are separated here so buyers can relate the range
-              to actual project use instead of reading only catalogue names.
-            </p>
-          </div>
-
-          <div class="application-grid">
-            <article class="application-card reveal">
-              <div class="media-frame tall"><img src="assets/catalog-pages/ss-page-4.png" alt="S.S. cabinet handle catalogue page with multiple sizes"></div>
-              <div class="card-copy">
-                <span class="card-tag">Use Case</span>
-                <h3>Cabinet and Wardrobe Hardware</h3>
-                <p>Multiple sizes and finish combinations that work for wardrobes, drawers, shutters and modular furniture projects.</p>
-              </div>
-            </article>
-
-            <article class="application-card reveal">
-              <div class="media-frame tall"><img src="assets/catalog-pages/zinc-page-11.png" alt="Zinc cabinet handle catalogue page"></div>
-              <div class="card-copy">
-                <span class="card-tag">Use Case</span>
-                <h3>Feature Handle Styling</h3>
-                <p>Premium finish direction for buyers who want cabinet handles to read as a design layer, not only a utility part.</p>
-              </div>
-            </article>
-
-            <article class="application-card reveal">
-              <div class="media-frame tall"><img src="assets/catalog-pages/sofa-page-9.png" alt="Sofa leg product catalogue page"></div>
-              <div class="card-copy">
-                <span class="card-tag">Use Case</span>
-                <h3>Furniture and Accent Pieces</h3>
-                <p>Sofa leg and furniture fitting options that help the site speak to a broader premium-interiors customer set.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="finishes">
-        <div class="section-inner">
-          <div class="section-head reveal">
-            <span class="section-label">Finish Direction</span>
-            <h2>Finish direction that buyers can <strong>compare at a glance</strong>.</h2>
-            <p>
-              This gallery keeps the premium feel grounded in actual product photography so finish character is visible
-              before a buyer opens a catalogue or sends a message.
-            </p>
-          </div>
-
-          <div class="finish-grid">
-            <article class="finish-card reveal">
-              <div class="media-frame"><img src="finish-premium-levers.jpg" alt="Premium lever handles in multiple finishes"></div>
-              <div class="card-copy">
-                <span class="card-tag">Finish set</span>
-                <h3>Premium Lever Mix</h3>
-                <p>Rose gold, satin chrome and velvet black positioned as polished premium options.</p>
-              </div>
-            </article>
-
-            <article class="finish-card reveal">
-              <div class="media-frame"><img src="finish-modern-levers.jpg" alt="Modern lever series in multiple tri-tone finishes"></div>
-              <div class="card-copy">
-                <span class="card-tag">Finish set</span>
-                <h3>Modern Tri-tone</h3>
-                <p>Silver-black, copper-black and gold-black styling for more contemporary interiors.</p>
-              </div>
-            </article>
-
-            <article class="finish-card reveal">
-              <div class="media-frame"><img src="finish-window-handles.jpg" alt="Designer window handles in color variations"></div>
-              <div class="card-copy">
-                <span class="card-tag">Finish set</span>
-                <h3>Designer Color Line</h3>
-                <p>Color-led finish direction that makes the range feel more custom and less commodity-driven.</p>
-              </div>
-            </article>
-
-            <article class="finish-card reveal">
-              <div class="media-frame"><img src="finish-pull-collection.jpg" alt="Pull handle collection with six finishes"></div>
-              <div class="card-copy">
-                <span class="card-tag">Finish set</span>
-                <h3>Pull Handle Mix</h3>
-                <p>Strong main door and wardrobe visual with multiple metallic and darker finish combinations.</p>
-              </div>
-            </article>
-
-            <article class="finish-card reveal">
-              <div class="media-frame"><img src="finish-brass-wood.jpg" alt="Heritage brass and wood handle finish"></div>
-              <div class="card-copy">
-                <span class="card-tag">Finish set</span>
-                <h3>Heritage Brass</h3>
-                <p>A warmer, more classical finish story that gives the brand a richer upper-end character.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="catalogues">
-        <div class="section-inner">
-          <div class="section-head reveal">
-            <span class="section-label">Catalogue Wall</span>
-            <h2>Catalogue pages that buyers can <strong>inspect before download</strong>.</h2>
-            <p>
-              Strong sample pages from the live catalogues sit next to direct PDF actions so dealers and buyers can
-              inspect the material first and then download the right document.
-            </p>
-          </div>
-
-          <div class="showcase-grid">
-            <article class="showcase-card reveal">
-              <div class="media-frame tall"><img src="assets/catalog-pages/ss-page-6.png" alt="S.S. cabinet handle catalogue page"></div>
-              <div class="card-copy">
-                <span class="card-tag">S.S. Handle</span>
-                <h3>Cabinet handle pages with sizes and finishes</h3>
-                <p>Shows real model layout, finish visibility and size presentation that helps buyers compare faster.</p>
-                <div class="showcase-actions">
-                  <a class="tiny-button primary" href="ss-handle.pdf" target="_blank" rel="noopener">View PDF</a>
-                  <a class="tiny-button" href="ss-handle.pdf" download>Download</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="showcase-card reveal">
-              <div class="media-frame tall"><img src="assets/catalog-pages/zinc-page-7.png" alt="Zinc handle catalogue page with handle image and pricing"></div>
-              <div class="card-copy">
-                <span class="card-tag">Zinc Handle</span>
-                <h3>Product page that reads like an actual selling sheet</h3>
-                <p>Visual handle image, sizes, finish language and pricing cues all in one view for cleaner enquiry support.</p>
-                <div class="showcase-actions">
-                  <a class="tiny-button primary" href="zinc-handle.pdf" target="_blank" rel="noopener">View PDF</a>
-                  <a class="tiny-button" href="zinc-handle.pdf" download>Download</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="showcase-card reveal">
-              <div class="media-frame tall"><img src="assets/catalog-pages/sofa-page-6.png" alt="Sofa leg catalogue page with specification table"></div>
-              <div class="card-copy">
-                <span class="card-tag">Sofa Leg</span>
-                <h3>Furniture fitting page with spec and finish clarity</h3>
-                <p>Strong example of how the site can show product seriousness beyond doors and cabinet hardware alone.</p>
-                <div class="showcase-actions">
-                  <a class="tiny-button primary" href="sofaleg.pdf" target="_blank" rel="noopener">View PDF</a>
-                  <a class="tiny-button" href="sofaleg.pdf" download>Download</a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="download-grid">
-            <article class="download-card reveal">
-              <h3>Lock Body Cylinder</h3>
-              <p>Price-list-first document for trade reference, quotations and quick discussion support.</p>
-              <div class="download-actions">
-                <a class="tiny-button primary" href="lock-body-cylinder-price-list.pdf" target="_blank" rel="noopener">View PDF</a>
-                <a class="tiny-button" href="lock-body-cylinder-price-list.pdf" download>Download</a>
-              </div>
-            </article>
-
-            <article class="download-card reveal">
-              <h3>S.S. Handle</h3>
-              <p>Multi-page handle catalogue for cabinet and linear handle options with real product photography.</p>
-              <div class="download-actions">
-                <a class="tiny-button primary" href="ss-handle.pdf" target="_blank" rel="noopener">View PDF</a>
-                <a class="tiny-button" href="ss-handle.pdf" download>Download</a>
-              </div>
-            </article>
-
-            <article class="download-card reveal">
-              <h3>Sofa Leg</h3>
-              <p>Furniture fitting collection with model pages, size information and more decorative finish direction.</p>
-              <div class="download-actions">
-                <a class="tiny-button primary" href="sofaleg.pdf" target="_blank" rel="noopener">View PDF</a>
-                <a class="tiny-button" href="sofaleg.pdf" download>Download</a>
-              </div>
-            </article>
-
-            <article class="download-card reveal">
-              <h3>Zinc Handle</h3>
-              <p>Cabinet handle catalogue with clearer visual variety and product-page structure than the old homepage had.</p>
-              <div class="download-actions">
-                <a class="tiny-button primary" href="zinc-handle.pdf" target="_blank" rel="noopener">View PDF</a>
-                <a class="tiny-button" href="zinc-handle.pdf" download>Download</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="dealers">
-        <div class="section-inner">
-          <div class="section-head reveal">
-            <span class="section-label">Dealer Support</span>
-            <h2>Built to help buyers <strong>compare faster and enquire faster</strong>.</h2>
-            <p>
-              Every section below supports actual product evaluation, catalogue access and quicker trade or project
-              conversations.
-            </p>
-          </div>
-
-          <div class="reason-grid">
-            <article class="reason-card reveal">
-              <strong>Visual selection clarity</strong>
-              <p>Real handle, cabinet and sofa-leg visuals help buyers compare style and finish more confidently.</p>
-            </article>
-            <article class="reason-card reveal">
-              <strong>Category-led browsing</strong>
-              <p>Buyers can move from category to application to catalogue without losing the product context.</p>
-            </article>
-            <article class="reason-card reveal">
-              <strong>Dealer-ready flow</strong>
-              <p>PDF access, WhatsApp contact, bulk-friendly contact labels and cleaner product grouping support actual enquiries.</p>
-            </article>
-            <article class="reason-card reveal">
-              <strong>Polished premium presentation</strong>
-              <p>Subtle motion, hover sheen and hero parallax keep the experience premium while still letting the product stay central.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="faq">
-        <div class="section-inner">
-          <div class="section-head reveal">
-            <span class="section-label">FAQ</span>
-            <h2>Questions buyers usually ask before they <strong>message or call</strong>.</h2>
-            <p class="faq-intro">Answering common questions up front keeps the enquiry journey easier for dealers, project buyers and catalogue viewers.</p>
-          </div>
-
-          <div class="faq-grid">
-            <div class="faq-card reveal">
-              <details>
-                <summary>What categories can I enquire about from this page?</summary>
-                <p>You can use this page for cabinet handles, S.S. handles, pull handles, sofa legs, zinc handle collections and lock body or cylinder price-list enquiries.</p>
-              </details>
-            </div>
-
-            <div class="faq-card reveal">
-              <details>
-                <summary>Can I view or download catalogues before contacting?</summary>
-                <p>Yes. The catalogue wall and download cards link directly to the live PDFs so dealers and buyers can inspect the material first.</p>
-              </details>
-            </div>
-
-            <div class="faq-card reveal">
-              <details>
-                <summary>Do you handle custom finish discussions?</summary>
-                <p>The live product content already references custom finish enquiry for bulk discussions. WhatsApp is the fastest path for that conversation.</p>
-              </details>
-            </div>
-
-            <div class="faq-card reveal">
-              <details>
-                <summary>Which contact route should I use?</summary>
-                <p>Use the WhatsApp line for quick catalogue and price discussions, or use the contact form for a fuller project requirement with name, company and product details.</p>
-              </details>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="contact">
-        <div class="section-inner contact-grid">
-          <div class="contact-card reveal">
-            <div class="section-head contact-head">
-              <span class="section-label">Contact and Enquiry</span>
-              <h2>Ready for <strong>dealer, project or catalogue</strong> discussion.</h2>
-              <p>Choose the route that matches your enquiry style: quick WhatsApp, direct sales call, email or detailed form submission.</p>
-            </div>
-
-            <div class="contact-stack">
-              <div class="contact-row">
-                <span>Sales calls</span>
-                <a href="tel:+919913235199">+91 99132 35199</a>
-              </div>
-              <div class="contact-row">
-                <span>WhatsApp</span>
-                <a href="https://wa.me/918153888813?text=Hello%20Aadhaya%20Locks%20and%20Fittings,%20I%20want%20to%20discuss%20products." target="_blank" rel="noopener">+91 81538 88813</a>
-              </div>
-              <div class="contact-row">
-                <span>Email</span>
-                <a href="mailto:aadhayahardware@gmail.com">aadhayahardware@gmail.com</a>
-              </div>
-              <div class="contact-row">
-                <span>Address</span>
-                <strong>Patel Nagar, Rajkot, Gujarat 360001</strong>
-              </div>
-              <div class="contact-row">
-                <span>Working hours</span>
-                <strong>Mon to Sat | 9:00 AM to 7:00 PM IST</strong>
-              </div>
-            </div>
-
-            <div class="contact-actions">
-              <a class="button" href="https://wa.me/918153888813?text=Hello%20Aadhaya%20Locks%20and%20Fittings,%20please%20share%20catalogue." target="_blank" rel="noopener">WhatsApp for Catalogue</a>
-              <a class="button-secondary" href="zinc-handle.pdf" target="_blank" rel="noopener">Open Zinc Catalogue</a>
-            </div>
-          </div>
-
-          <div class="contact-card reveal">
-            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="b3be5563-e299-4539-a03d-f42594ba4072">
-              <input type="hidden" name="subject" value="New enquiry from Aadhaya Locks and Fittings website">
-              <input type="hidden" name="from_name" value="Aadhaya Locks and Fittings Website">
-              <input type="hidden" name="redirect" value="https://aadhayahardware.github.io/#contact">
-              <input type="checkbox" name="botcheck" class="botcheck">
-
-              <div class="field-grid">
-                <div class="field">
-                  <label for="name">Name</label>
-                  <input id="name" name="name" type="text" required>
-                </div>
-                <div class="field">
-                  <label for="company">Company</label>
-                  <input id="company" name="company" type="text">
-                </div>
-              </div>
-
-              <div class="field-grid">
-                <div class="field">
-                  <label for="phone">Phone</label>
-                  <input id="phone" name="phone" type="tel" required>
-                </div>
-                <div class="field">
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email">
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="requirement">Requirement</label>
-                <textarea id="requirement" name="message" placeholder="Tell us the product category, finish direction, quantity idea or catalogue you need." required></textarea>
-              </div>
-
-              <button class="button" type="submit">Send Enquiry</button>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        <div>Aadhaya Locks and Fittings | Rajkot, Gujarat | Premium hardware collections and catalogue-led enquiry</div>
-        <div class="footer-links">
-          <a href="#products">Products</a>
-          <a href="#catalogues">Catalogues</a>
-          <a href="mailto:aadhayahardware@gmail.com">Email</a>
-          <a href="https://wa.me/918153888813?text=Hello%20Aadhaya%20Locks%20and%20Fittings" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-    </footer>
+<!-- HEADER -->
+<header id="hdr">
+ <nav class="nav wrap">
+  <a class="brand" href="#top"><img src="mark.png" alt="AADHAYA"><b>AADHAYA</b></a>
+  <div class="links">
+   <a href="#magic">Finishes</a>
+   <a href="#collections">Collections</a>
+   <a href="#catalogue">Catalogue</a>
+   <a href="#about">About</a>
+   <a href="#contact">Contact</a>
   </div>
+  <a class="btn btn-gold" href="https://order.aadhayahardware.com" target="_blank" rel="noopener">Order Now</a>
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+ </nav>
+</header>
+<div class="mnav" id="mnav">
+ <a href="#magic">Finishes</a>
+ <a href="#collections">Collections</a>
+ <a href="#catalogue">Catalogue</a>
+ <a href="#about">About</a>
+ <a href="#contact">Contact</a>
+ <a class="btn btn-gold" href="https://order.aadhayahardware.com" target="_blank" rel="noopener">Order Now</a>
+</div>
 
-  <a class="wa-float" href="https://wa.me/918153888813?text=Hello%20Aadhaya%20Locks%20and%20Fittings,%20I%20want%20more%20details." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp</a>
+<!-- HERO -->
+<section class="hero" id="top">
+ <div class="hero-bg"></div>
+ <div class="hero-inner">
+  <div class="eyebrow">Aadhaya · Locks &amp; Fittings</div>
+  <h1 class="serif">Crafting Luxury<br><em>in Every Detail</em></h1>
+  <p class="sub">Premium stainless-steel hardware — where precision meets elegance, redefining fittings for modern living.</p>
+  <div class="cta">
+   <a class="btn btn-gold" href="#collections">Explore Collections</a>
+   <a class="btn btn-ghost" href="#catalogue">Open Catalogue</a>
+  </div>
+  <div style="position:relative">
+   <div class="ghostword">AADHAYA</div>
+   <img class="hero-prod" src="p_lever2.jpg" alt="AADHAYA premium lever handle">
+  </div>
+ </div>
+ <a class="scrollcue" href="#magic">Scroll<i></i></a>
+</section>
+
+<!-- MAGIC FINISH -->
+<section class="sec magic" id="magic">
+ <div class="wrap">
+  <div class="sec-head reveal">
+   <div class="eyebrow">The Magic of Finish</div>
+   <h2 class="serif">One Handle. Every Finish.</h2>
+   <p>Tap the product to transform it through our six signature finishes — instantly.</p>
+  </div>
+  <div class="vit reveal">
+   <div class="vit-stage" id="stage">
+    <img id="fA" src="fin_satin.jpg" alt="finish">
+    <img id="fB" src="fin_satin.jpg" alt="finish" style="opacity:0">
+    <div class="vit-sweep"></div>
+    <div class="vit-tap">Tap to change finish</div>
+   </div>
+  </div>
+  <div class="fin-name serif" id="finName">Satin Nickel</div>
+  <div class="swatches" id="swatches"></div>
+ </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="sec" id="collections">
+ <div class="wrap">
+  <div class="sec-head reveal">
+   <div class="eyebrow">Our Range</div>
+   <h2 class="serif">Signature Collections</h2>
+   <p>Seven families of fittings, engineered in Rajkot for homes, projects and showrooms across India.</p>
+  </div>
+  <div class="grid" id="grid"></div>
+ </div>
+</section>
+
+<!-- CATALOGUE -->
+<section class="sec book-sec" id="catalogue">
+ <div class="wrap">
+  <div class="sec-head reveal">
+   <div class="eyebrow">The Collection Book</div>
+   <h2 class="serif">Flip Through the Catalogue</h2>
+  </div>
+  <div class="book-cta reveal">
+   <div class="book-cover" id="openBook">
+    <img src="c1.jpg" alt="AADHAYA Catalogue 2026">
+    <div class="spine"></div>
+    <div class="open-badge"><b>Open the Book</b></div>
+   </div>
+   <div class="book-copy">
+    <h3 class="serif">Product Catalogue 2026</h3>
+    <p>21 pages of premium handles, knobs and architectural hardware — presented as a real page-flip book. Browse finishes, sizes and codes at a glance.</p>
+    <button class="btn btn-gold" id="openBook2">Open Catalogue</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- STORY -->
+<section class="sec" id="about">
+ <div class="wrap story">
+  <div class="reveal">
+   <div class="eyebrow">Established 2012 · Rajkot, India</div>
+   <h2 class="serif" style="margin-top:12px">A Decade of<br>Precision &amp; Trust.</h2>
+   <p>AADHAYA crafts premium stainless-steel hardware for dealers, architects and furniture makers — combining factory-direct pricing with finishes worthy of luxury interiors.</p>
+   <div class="stats">
+    <div class="stat"><b>12yr</b><span>Experience</span></div>
+    <div class="stat"><b>700+</b><span>Dealers</span></div>
+    <div class="stat"><b>130+</b><span>Products</span></div>
+    <div class="stat"><b>6</b><span>Finishes</span></div>
+   </div>
+  </div>
+  <div class="story-img reveal"><img src="pack.jpg" alt="AADHAYA premium packaging"></div>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact">
+ <div class="wrap">
+  <div class="sec-head reveal">
+   <div class="eyebrow">Get in Touch</div>
+   <h2 class="serif">Become a Dealer</h2>
+  </div>
+  <div class="cgrid reveal">
+   <div>
+    <div class="cinfo-row"><div class="lbl">Address</div><div class="val">Patel Nagar, Rajkot,<br>Gujarat — 360001, India</div></div>
+    <div class="cinfo-row"><div class="lbl">Phone</div><div class="val">+91 99132 35199</div></div>
+    <div class="cinfo-row"><div class="lbl">GSTIN</div><div class="val">24BITPG5534R1ZI</div></div>
+    <div class="cinfo-row"><div class="lbl">Hours</div><div class="val">Mon–Sat · 10 AM – 8 PM</div></div>
+   </div>
+   <div class="cpanel">
+    <h3 class="serif">Order on WhatsApp</h3>
+    <p>Send your requirement — size, finish &amp; quantity. Dealer &amp; distributor enquiries welcome.</p>
+    <a class="btn wa" href="https://wa.me/919913235199" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    <a class="btn btn-ghost" style="margin-top:12px;justify-content:center" href="https://order.aadhayahardware.com" target="_blank" rel="noopener">Open Order App</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <img src="logo.png" alt="AADHAYA Locks & Fittings">
+ <div class="tag">Precision · Design · Durability</div>
+ <div class="small">© 2026 AADHAYA Locks &amp; Fittings · Rajkot, Gujarat<br>GSTIN 24BITPG5534R1ZI · +91 99132 35199</div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/919913235199" target="_blank" rel="noopener" aria-label="WhatsApp">
+ <svg width="28" height="28" viewBox="0 0 24 24" fill="#04210f"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.589-.945zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<!-- FLIPBOOK OVERLAY -->
+<div class="fb-ov" id="fbov">
+ <button class="fb-close" id="fbClose">×</button>
+ <div id="book"></div>
+ <div class="fb-fallback" id="fbFallback"></div>
+ <div class="fb-bar" id="fbBar">
+  <button id="fbPrev">‹</button>
+  <span class="pg" id="fbPg">1 / 21</span>
+  <button id="fbNext">›</button>
+ </div>
+</div>
+
+<script>
+/* ---- reveal on scroll ---- */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---- mobile nav ---- */
+const mnav=document.getElementById('mnav'),burger=document.getElementById('burger');
+burger.onclick=()=>mnav.classList.toggle('open');
+mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'));
+
+/* ---- MAGIC FINISH ---- */
+const FIN=[
+ {k:'Satin Nickel',img:'fin_satin.jpg',f:'none',sw:'linear-gradient(135deg,#dcdcd6,#9c9c93)'},
+ {k:'Polished Chrome',img:'fin_satin.jpg',f:'brightness(1.18) contrast(1.1) saturate(.65)',sw:'linear-gradient(135deg,#ffffff,#b6bdc4)'},
+ {k:'Rose Gold',img:'fin_rose.jpg',f:'none',sw:'linear-gradient(135deg,#ecb79c,#c87f68)'},
+ {k:'Royal Gold',img:'fin_gold.jpg',f:'none',sw:'linear-gradient(135deg,#ecd189,#bd9a3c)'},
+ {k:'Antique Brass',img:'fin_gold.jpg',f:'sepia(.55) saturate(1.6) hue-rotate(-14deg) brightness(.8) contrast(1.05)',sw:'linear-gradient(135deg,#b6924e,#6c5325)'},
+ {k:'Matte Black',img:'fin_black.jpg',f:'none',sw:'linear-gradient(135deg,#3c3c3c,#0c0c0c)'}
+];
+let curFin=0,top=true;
+const fA=document.getElementById('fA'),fB=document.getElementById('fB'),stage=document.getElementById('stage'),finName=document.getElementById('finName'),swWrap=document.getElementById('swatches');
+FIN.forEach((f,i)=>{const s=document.createElement('div');s.className='sw'+(i===0?' on':'');s.style.background=f.sw;s.innerHTML='<span>'+f.k+'</span>';s.onclick=(e)=>{e.stopPropagation();setFin(i)};swWrap.appendChild(s)});
+function setFin(i){
+ if(i===curFin)return;
+ const f=FIN[i];
+ const show=top?fB:fA, hide=top?fA:fB;
+ show.src=f.img; show.style.filter=f.f; show.style.opacity=1; hide.style.opacity=0;
+ top=!top; curFin=i;
+ finName.textContent=f.k;
+ [...swWrap.children].forEach((c,j)=>c.classList.toggle('on',j===i));
+ stage.classList.remove('sweep');void stage.offsetWidth;stage.classList.add('sweep');
+}
+stage.onclick=()=>setFin((curFin+1)%FIN.length);
+
+/* ---- COLLECTIONS ---- */
+const COLL=[
+ {n:'Cabinet Handles',t:'Stainless · Brass',img:'p_handle.jpg'},
+ {n:'Mortise Handles',t:'Door Sets',img:'p_lever1.jpg'},
+ {n:'Concealed Handles',t:'Flush · Minimal',img:'fin_satin.jpg',fit:1},
+ {n:'Cabinet Knobs',t:'Wardrobe',img:'p_cabinet.jpg'},
+ {n:'Profile Handles',t:'Aluminium',img:'p_mortise.jpg'},
+ {n:'Sofa Legs',t:'Furniture Fittings',img:'p_leg.jpg'}
+];
+const grid=document.getElementById('grid');
+COLL.forEach(c=>{
+ const d=document.createElement('a');d.className='ccard';d.href='https://order.aadhayahardware.com';d.target='_blank';d.rel='noopener';
+ d.innerHTML='<img src="'+c.img+'" alt="'+c.n+'" '+(c.fit?'style="object-fit:contain;background:#efece6;padding:10%"':'')+'><div class="arrow">↗</div><div class="cinfo"><span>'+c.t+'</span><b>'+c.n+'</b></div>';
+ grid.appendChild(d);
+});
+
+/* ---- FLIPBOOK ---- */
+const PAGES=21;
+const fbov=document.getElementById('fbov'),bookEl=document.getElementById('book'),fbPg=document.getElementById('fbPg');
+let pf=null,fbReady=false;
+function buildPages(){
+ bookEl.innerHTML='';
+ for(let i=1;i<=PAGES;i++){
+  const p=document.createElement('div');p.className='fb-page';
+  p.innerHTML='<img src="c'+i+'.jpg" alt="page '+i+'">';
+  bookEl.appendChild(p);
+ }
+}
+function calcSize(){
+ const ar=1413/1000;
+ let h=Math.min(innerHeight*0.82, 760);
+ let w=h/ar;
+ const portrait=innerWidth<900;
+ const totalW=portrait?w:w*2;
+ if(totalW>innerWidth*0.94){const s=innerWidth*0.94/totalW;w*=s;h*=s;}
+ return {w:Math.round(w),h:Math.round(h),portrait};
+}
+function openBook(){
+ fbov.classList.add('open');document.body.style.overflow='hidden';
+ if(fbReady)return;
+ const sz=calcSize();
+ if(window.St&&St.PageFlip){
+  buildPages();
+  pf=new St.PageFlip(bookEl,{width:sz.w,height:sz.h,size:'fixed',showCover:true,usePortrait:sz.portrait,maxShadowOpacity:.5,mobileScrollSupport:false,drawShadow:true});
+  pf.loadFromHTML(document.querySelectorAll('.fb-page'));
+  pf.on('flip',e=>fbPg.textContent=(e.data+1)+' / '+PAGES);
+  fbReady=true;
+ }else{
+  const fb=document.getElementById('fbFallback');fb.classList.add('show');bookEl.style.display='none';
+  for(let i=1;i<=PAGES;i++){const im=document.createElement('img');im.src='c'+i+'.jpg';im.alt='page '+i;fb.appendChild(im);}
+  fbReady=true;
+ }
+}
+function closeBook(){fbov.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('fbClose').onclick=closeBook;
+document.getElementById('fbPrev').onclick=()=>{pf?pf.flipPrev():document.getElementById('fbFallback').scrollBy({left:-innerWidth*0.7,behavior:'smooth'})};
+document.getElementById('fbNext').onclick=()=>{pf?pf.flipNext():document.getElementById('fbFallback').scrollBy({left:innerWidth*0.7,behavior:'smooth'})};
+addEventListener('keydown',e=>{if(!fbov.classList.contains('open'))return;if(e.key==='Escape')closeBook();if(e.key==='ArrowLeft'&&pf)pf.flipPrev();if(e.key==='ArrowRight'&&pf)pf.flipNext()});
+
+let libLoading=false;
+function loadAndOpen(){
+ if((window.St&&St.PageFlip)||fbReady){openBook();return;}
+ if(libLoading)return;
+ libLoading=true;
+ const s=document.createElement('script');
+ s.src='https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js';
+ s.onload=openBook; s.onerror=openBook;
+ document.head.appendChild(s);
+ setTimeout(()=>{if(!fbReady)openBook();},1100);
+}
+document.getElementById('openBook').onclick=loadAndOpen;
+document.getElementById('openBook2').onclick=loadAndOpen;
+</script>
 </body>
 </html>
