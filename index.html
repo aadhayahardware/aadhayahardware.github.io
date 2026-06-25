@@ -64,7 +64,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s}
 .hero h1 em{font-style:italic;color:var(--gold2)}
 .hero .sub{color:var(--mut);font-size:clamp(13px,2.2vw,16px);letter-spacing:.5px;margin:22px auto 0;max-width:520px}
 .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
-.hero-prod{position:relative;z-index:1;margin:-6% auto 0;width:min(560px,82vw);filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
+.hero-prod{position:relative;z-index:1;margin:18px auto 0;width:min(560px,82vw);filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
 .ghostword{position:absolute;z-index:0;top:46%;left:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-weight:700;font-size:clamp(80px,22vw,260px);letter-spacing:6px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.10);white-space:nowrap;pointer-events:none}
 .scrollcue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;font-size:10px;letter-spacing:3px;color:var(--mut);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
 .scrollcue i{width:1px;height:36px;background:linear-gradient(var(--gold),transparent);animation:cue 1.8s infinite}
@@ -369,15 +369,15 @@ const FIN=[
  {k:'Antique Brass',img:'fin_gold.jpg',f:'sepia(.55) saturate(1.6) hue-rotate(-14deg) brightness(.8) contrast(1.05)',sw:'linear-gradient(135deg,#b6924e,#6c5325)'},
  {k:'Matte Black',img:'fin_black.jpg',f:'none',sw:'linear-gradient(135deg,#3c3c3c,#0c0c0c)'}
 ];
-let curFin=0,top=true;
+let curFin=0,tgl=true;
 const fA=document.getElementById('fA'),fB=document.getElementById('fB'),stage=document.getElementById('stage'),finName=document.getElementById('finName'),swWrap=document.getElementById('swatches');
 FIN.forEach((f,i)=>{const s=document.createElement('div');s.className='sw'+(i===0?' on':'');s.style.background=f.sw;s.innerHTML='<span>'+f.k+'</span>';s.onclick=(e)=>{e.stopPropagation();setFin(i)};swWrap.appendChild(s)});
 function setFin(i){
  if(i===curFin)return;
  const f=FIN[i];
- const show=top?fB:fA, hide=top?fA:fB;
+ const show=tgl?fB:fA, hide=tgl?fA:fB;
  show.src=f.img; show.style.filter=f.f; show.style.opacity=1; hide.style.opacity=0;
- top=!top; curFin=i;
+ tgl=!tgl; curFin=i;
  finName.textContent=f.k;
  [...swWrap.children].forEach((c,j)=>c.classList.toggle('on',j===i));
  stage.classList.remove('sweep');void stage.offsetWidth;stage.classList.add('sweep');
