@@ -118,6 +118,17 @@ header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s}
 .book-copy{max-width:340px}
 .book-copy h3{font-family:var(--serif);font-size:34px;font-weight:500;line-height:1.1}
 .book-copy p{color:var(--mut);font-size:14px;margin:16px 0 24px}
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.bcover{position:relative;cursor:pointer;border-radius:8px;overflow:hidden;aspect-ratio:1000/1413;box-shadow:0 18px 44px rgba(0,0,0,.55);border:1px solid rgba(200,168,74,.22);transition:transform .45s,box-shadow .45s}
+.bcover img{width:100%;height:100%;object-fit:cover}
+.bcover .spine{position:absolute;left:0;top:0;bottom:0;width:10px;background:linear-gradient(90deg,rgba(0,0,0,.55),transparent);z-index:1}
+.bcover:hover{transform:translateY(-8px) rotateZ(-1deg);box-shadow:0 30px 66px rgba(0,0,0,.7)}
+.bcover .bmeta{position:absolute;left:0;right:0;bottom:0;padding:13px 14px;background:linear-gradient(to top,rgba(6,6,8,.96),rgba(6,6,8,.4) 60%,transparent);z-index:2}
+.bcover .bmeta b{font-family:var(--serif);font-size:16px;font-weight:500;display:block;line-height:1.15;margin-top:2px}
+.bcover .bmeta span{font-size:9px;letter-spacing:1.2px;color:var(--gold2);text-transform:uppercase}
+.bcover .pages{position:absolute;top:10px;right:10px;z-index:2;background:rgba(8,8,10,.62);border:1px solid var(--line);color:var(--gold2);font-size:9px;letter-spacing:.5px;padding:3px 8px;border-radius:20px}
+@media(max-width:860px){.shelf{grid-template-columns:repeat(2,1fr);gap:14px}}
+@media(max-width:520px){.shelf{gap:12px}.bcover .bmeta b{font-size:14px}}
 
 /* flipbook overlay */
 .fb-ov{position:fixed;inset:0;z-index:200;background:rgba(6,6,8,.96);backdrop-filter:blur(6px);display:none;flex-direction:column;align-items:center;justify-content:center}
@@ -268,21 +279,11 @@ footer .small{color:#67645d;font-size:12px;margin-top:18px;line-height:1.8}
 <section class="sec book-sec" id="catalogue">
  <div class="wrap">
   <div class="sec-head reveal">
-   <div class="eyebrow">The Collection Book</div>
-   <h2 class="serif">Flip Through the Catalogue</h2>
+   <div class="eyebrow">The Collection Books</div>
+   <h2 class="serif">Flip Through Our Catalogues</h2>
+   <p>Seven catalogue books — tap any cover to open it as a real page-flip book.</p>
   </div>
-  <div class="book-cta reveal">
-   <div class="book-cover" id="openBook">
-    <img src="c1.jpg" alt="AADHAYA Catalogue 2026">
-    <div class="spine"></div>
-    <div class="open-badge"><b>Open the Book</b></div>
-   </div>
-   <div class="book-copy">
-    <h3 class="serif">Product Catalogue 2026</h3>
-    <p>21 pages of premium handles, knobs and architectural hardware — presented as a real page-flip book. Browse finishes, sizes and codes at a glance.</p>
-    <button class="btn btn-gold" id="openBook2">Open Catalogue</button>
-   </div>
-  </div>
+  <div class="shelf reveal" id="shelf"></div>
  </div>
 </section>
 
@@ -400,62 +401,59 @@ COLL.forEach(c=>{
  grid.appendChild(d);
 });
 
-/* ---- FLIPBOOK ---- */
-const PAGES=21;
-const fbov=document.getElementById('fbov'),bookEl=document.getElementById('book'),fbPg=document.getElementById('fbPg');
-let pf=null,fbReady=false;
-function buildPages(){
- bookEl.innerHTML='';
- for(let i=1;i<=PAGES;i++){
-  const p=document.createElement('div');p.className='fb-page';
-  p.innerHTML='<img src="c'+i+'.jpg" alt="page '+i+'">';
-  bookEl.appendChild(p);
- }
-}
+/* ---- FLIPBOOK (multi-book shelf) ---- */
+const BOOKS=[
+ {t:'Master Catalogue',s:'All Collections',pfx:'c',pages:21},
+ {t:'SS Cabinet Handles',s:'Stainless Steel',pfx:'sc',pages:22},
+ {t:'SS Mortise Handles',s:'Door Handle Sets',pfx:'sm',pages:24},
+ {t:'Zinc Mortise',s:'Mortise Handles',pfx:'zm',pages:11},
+ {t:'Concealed & Knobs',s:'Flush · Knobs',pfx:'ck',pages:12},
+ {t:'Aluminium Profile',s:'Profile · Long Pulls',pfx:'al',pages:28},
+ {t:'Sofa Legs',s:'Furniture Fittings',pfx:'sl',pages:15}
+];
+const shelf=document.getElementById('shelf');
+BOOKS.forEach(b=>{const d=document.createElement('div');d.className='bcover';d.innerHTML='<img src="'+b.pfx+'1.jpg" alt="'+b.t+'" loading="lazy"><div class="spine"></div><div class="pages">'+b.pages+' pp</div><div class="bmeta"><span>'+b.s+'</span><b>'+b.t+'</b></div>';d.onclick=()=>openBookFlow(b);shelf.appendChild(d)});
+
+const fbov=document.getElementById('fbov'),bookEl=document.getElementById('book'),fbPg=document.getElementById('fbPg'),fbFb=document.getElementById('fbFallback');
+let pf=null;
 function calcSize(){
  const ar=1413/1000;
- let h=Math.min(innerHeight*0.82, 760);
+ let h=Math.min(innerHeight*0.82,760);
  let w=h/ar;
  const portrait=innerWidth<900;
  const totalW=portrait?w:w*2;
- if(totalW>innerWidth*0.94){const s=innerWidth*0.94/totalW;w*=s;h*=s;}
+ if(totalW>innerWidth*0.94){const sc=innerWidth*0.94/totalW;w*=sc;h*=sc;}
  return {w:Math.round(w),h:Math.round(h),portrait};
 }
-function openBook(){
- fbov.classList.add('open');document.body.style.overflow='hidden';
- if(fbReady)return;
+function initFlip(b){
  const sz=calcSize();
  if(window.St&&St.PageFlip){
-  buildPages();
+  if(pf){try{pf.destroy()}catch(e){}pf=null;}
+  fbFb.classList.remove('show');fbFb.innerHTML='';
+  bookEl.style.display='';bookEl.innerHTML='';
+  for(let i=1;i<=b.pages;i++){const p=document.createElement('div');p.className='fb-page';p.innerHTML='<img src="'+b.pfx+i+'.jpg" alt="'+b.t+' '+i+'">';bookEl.appendChild(p);}
   pf=new St.PageFlip(bookEl,{width:sz.w,height:sz.h,size:'fixed',showCover:true,usePortrait:sz.portrait,maxShadowOpacity:.5,mobileScrollSupport:false,drawShadow:true});
   pf.loadFromHTML(document.querySelectorAll('.fb-page'));
-  pf.on('flip',e=>fbPg.textContent=(e.data+1)+' / '+PAGES);
-  fbReady=true;
+  fbPg.textContent='1 / '+b.pages;
+  pf.on('flip',e=>fbPg.textContent=(e.data+1)+' / '+b.pages);
  }else{
-  const fb=document.getElementById('fbFallback');fb.classList.add('show');bookEl.style.display='none';
-  for(let i=1;i<=PAGES;i++){const im=document.createElement('img');im.src='c'+i+'.jpg';im.alt='page '+i;fb.appendChild(im);}
-  fbReady=true;
+  bookEl.style.display='none';fbFb.classList.add('show');fbFb.innerHTML='';
+  for(let i=1;i<=b.pages;i++){const im=document.createElement('img');im.src=b.pfx+i+'.jpg';im.alt=b.t+' '+i;fbFb.appendChild(im);}
+  fbPg.textContent='1 / '+b.pages;
  }
 }
-function closeBook(){fbov.classList.remove('open');document.body.style.overflow=''}
-document.getElementById('fbClose').onclick=closeBook;
-document.getElementById('fbPrev').onclick=()=>{pf?pf.flipPrev():document.getElementById('fbFallback').scrollBy({left:-innerWidth*0.7,behavior:'smooth'})};
-document.getElementById('fbNext').onclick=()=>{pf?pf.flipNext():document.getElementById('fbFallback').scrollBy({left:innerWidth*0.7,behavior:'smooth'})};
-addEventListener('keydown',e=>{if(!fbov.classList.contains('open'))return;if(e.key==='Escape')closeBook();if(e.key==='ArrowLeft'&&pf)pf.flipPrev();if(e.key==='ArrowRight'&&pf)pf.flipNext()});
-
-let libLoading=false;
-function loadAndOpen(){
- if((window.St&&St.PageFlip)||fbReady){openBook();return;}
- if(libLoading)return;
- libLoading=true;
- const s=document.createElement('script');
- s.src='https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js';
- s.onload=openBook; s.onerror=openBook;
- document.head.appendChild(s);
- setTimeout(()=>{if(!fbReady)openBook();},1100);
+let curBook=null,libLoading=false;
+function openBookFlow(b){
+ curBook=b;fbov.classList.add('open');document.body.style.overflow='hidden';
+ if(window.St&&St.PageFlip){initFlip(b);return;}
+ if(!libLoading){libLoading=true;const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js';s.onload=()=>initFlip(b);s.onerror=()=>initFlip(b);document.head.appendChild(s);}
+ setTimeout(()=>{if(!pf&&curBook===b)initFlip(b)},1300);
 }
-document.getElementById('openBook').onclick=loadAndOpen;
-document.getElementById('openBook2').onclick=loadAndOpen;
+function closeBook(){fbov.classList.remove('open');document.body.style.overflow='';}
+document.getElementById('fbClose').onclick=closeBook;
+document.getElementById('fbPrev').onclick=()=>{pf?pf.flipPrev():fbFb.scrollBy({left:-innerWidth*0.7,behavior:'smooth'})};
+document.getElementById('fbNext').onclick=()=>{pf?pf.flipNext():fbFb.scrollBy({left:innerWidth*0.7,behavior:'smooth'})};
+addEventListener('keydown',e=>{if(!fbov.classList.contains('open'))return;if(e.key==='Escape')closeBook();if(e.key==='ArrowLeft'&&pf)pf.flipPrev();if(e.key==='ArrowRight'&&pf)pf.flipNext()});
 </script>
 </body>
 </html>
