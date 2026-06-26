@@ -431,9 +431,10 @@ function initFlip(b){
   if(pf){try{pf.destroy()}catch(e){}pf=null;}
   fbFb.classList.remove('show');fbFb.innerHTML='';
   bookEl.style.display='';bookEl.innerHTML='';
-  for(let i=1;i<=b.pages;i++){const p=document.createElement('div');p.className='fb-page';p.innerHTML='<img src="'+b.pfx+i+'.jpg" alt="'+b.t+' '+i+'">';bookEl.appendChild(p);}
-  pf=new St.PageFlip(bookEl,{width:sz.w,height:sz.h,size:'fixed',showCover:true,usePortrait:sz.portrait,maxShadowOpacity:.5,mobileScrollSupport:false,drawShadow:true});
-  pf.loadFromHTML(document.querySelectorAll('.fb-page'));
+  var inner=document.createElement('div');bookEl.appendChild(inner);
+  for(let i=1;i<=b.pages;i++){const p=document.createElement('div');p.className='fb-page';p.innerHTML='<img src="'+b.pfx+i+'.jpg" alt="'+b.t+' '+i+'">';inner.appendChild(p);}
+  pf=new St.PageFlip(inner,{width:sz.w,height:sz.h,size:'fixed',showCover:true,usePortrait:sz.portrait,maxShadowOpacity:.5,mobileScrollSupport:false,drawShadow:true});
+  pf.loadFromHTML(inner.querySelectorAll('.fb-page'));
   fbPg.textContent='1 / '+b.pages;
   pf.on('flip',e=>fbPg.textContent=(e.data+1)+' / '+b.pages);
  }else{
