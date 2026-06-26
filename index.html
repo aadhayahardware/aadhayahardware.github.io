@@ -426,7 +426,7 @@ function calcSize(){
  if(totalW>innerWidth*0.94){const sc=innerWidth*0.94/totalW;w*=sc;h*=sc;}
  return {w:Math.round(w),h:Math.round(h),portrait};
 }
-function playFlip(){try{if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();if(actx.state==='suspended')actx.resume();var dur=0.22,sr=actx.sampleRate,buf=actx.createBuffer(1,Math.floor(sr*dur),sr),d=buf.getChannelData(0);for(var i=0;i<d.length;i++){var t=i/d.length,env=Math.min(1,t*10)*Math.pow(1-t,2.2);d[i]=(Math.random()*2-1)*env;}var src=actx.createBufferSource();src.buffer=buf;var bp=actx.createBiquadFilter();bp.type='bandpass';bp.Q.value=0.8;bp.frequency.setValueAtTime(3200,actx.currentTime);bp.frequency.exponentialRampToValueAtTime(700,actx.currentTime+dur);var g=actx.createGain();g.gain.value=0.4;src.connect(bp);bp.connect(g);g.connect(actx.destination);src.start();}catch(e){}}
+var flipSrc='https://cdn.jsdelivr.net/npm/dflip/sound/turn2.mp3';var flipAudio=new Audio(flipSrc);flipAudio.preload='auto';function playFlip(){try{var a=flipAudio.cloneNode();a.volume=0.6;var pr=a.play();if(pr&&pr.catch)pr.catch(function(){});}catch(e){}}
 function initFlip(b){
  const sz=calcSize();
  if(window.St&&St.PageFlip){
