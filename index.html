@@ -348,6 +348,7 @@ footer .small{color:#67645d;font-size:12px;margin-top:18px;line-height:1.8}
   <button id="fbPrev">‹</button>
   <span class="pg" id="fbPg">1 / 21</span>
   <button id="fbNext">›</button>
+  <button id="fbMute" title="Page sound">🔊</button>
  </div>
 </div>
 
@@ -425,6 +426,7 @@ function calcSize(){
  if(totalW>innerWidth*0.94){const sc=innerWidth*0.94/totalW;w*=sc;h*=sc;}
  return {w:Math.round(w),h:Math.round(h),portrait};
 }
+function playFlip(){try{if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();if(actx.state==='suspended')actx.resume();var dur=0.22,sr=actx.sampleRate,buf=actx.createBuffer(1,Math.floor(sr*dur),sr),d=buf.getChannelData(0);for(var i=0;i<d.length;i++){var t=i/d.length,env=Math.min(1,t*10)*Math.pow(1-t,2.2);d[i]=(Math.random()*2-1)*env;}var src=actx.createBufferSource();src.buffer=buf;var bp=actx.createBiquadFilter();bp.type='bandpass';bp.Q.value=0.8;bp.frequency.setValueAtTime(3200,actx.currentTime);bp.frequency.exponentialRampToValueAtTime(700,actx.currentTime+dur);var g=actx.createGain();g.gain.value=0.4;src.connect(bp);bp.connect(g);g.connect(actx.destination);src.start();}catch(e){}}
 function initFlip(b){
  const sz=calcSize();
  if(window.St&&St.PageFlip){
@@ -436,16 +438,17 @@ function initFlip(b){
   pf=new St.PageFlip(inner,{width:sz.w,height:sz.h,size:'fixed',showCover:true,usePortrait:sz.portrait,maxShadowOpacity:.5,mobileScrollSupport:false,drawShadow:true});
   pf.loadFromHTML(inner.querySelectorAll('.fb-page'));
   fbPg.textContent='1 / '+b.pages;
-  pf.on('flip',e=>fbPg.textContent=(e.data+1)+' / '+b.pages);
+  pf.on('flip',e=>{fbPg.textContent=(e.data+1)+' / '+b.pages;if(soundOn)playFlip();});
  }else{
   bookEl.style.display='none';fbFb.classList.add('show');fbFb.innerHTML='';
   for(let i=1;i<=b.pages;i++){const im=document.createElement('img');im.src=b.pfx+i+'.jpg';im.alt=b.t+' '+i;fbFb.appendChild(im);}
   fbPg.textContent='1 / '+b.pages;
  }
 }
-let curBook=null,libLoading=false;
+let curBook=null,libLoading=false,soundOn=true,actx;
 function openBookFlow(b){
  curBook=b;fbov.classList.add('open');document.body.style.overflow='hidden';
+ try{if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();if(actx.state==='suspended')actx.resume();}catch(e){}
  if(window.St&&St.PageFlip){initFlip(b);return;}
  if(!libLoading){libLoading=true;const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js';s.onload=()=>initFlip(b);s.onerror=()=>initFlip(b);document.head.appendChild(s);}
  setTimeout(()=>{if(!pf&&curBook===b)initFlip(b)},1300);
@@ -454,6 +457,7 @@ function closeBook(){fbov.classList.remove('open');document.body.style.overflow=
 document.getElementById('fbClose').onclick=closeBook;
 document.getElementById('fbPrev').onclick=()=>{pf?pf.flipPrev():fbFb.scrollBy({left:-innerWidth*0.7,behavior:'smooth'})};
 document.getElementById('fbNext').onclick=()=>{pf?pf.flipNext():fbFb.scrollBy({left:innerWidth*0.7,behavior:'smooth'})};
+document.getElementById('fbMute').onclick=function(){soundOn=!soundOn;this.textContent=soundOn?'🔊':'🔇';if(soundOn){try{if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();actx.resume()}catch(e){}}};
 addEventListener('keydown',e=>{if(!fbov.classList.contains('open'))return;if(e.key==='Escape')closeBook();if(e.key==='ArrowLeft'&&pf)pf.flipPrev();if(e.key==='ArrowRight'&&pf)pf.flipNext()});
 </script>
 </body>
