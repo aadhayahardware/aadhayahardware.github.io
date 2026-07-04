@@ -55,7 +55,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s}
 /* ---------- HERO (cinematic dark · dual-photo) ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;text-align:left;padding:120px 0 70px;overflow:hidden;background:radial-gradient(120% 110% at 73% 32%,#241f2e 0%,#15121c 56%,#0a0a0b 100%)}
 .hero-media{position:absolute;inset:0;z-index:0}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:62% center;opacity:0;will-change:transform,opacity}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;background-position:62% center;opacity:0;will-change:transform,opacity}
 .hero-slide.s1{background-image:url('hero-black.jpg');animation:heroA 8s ease-in-out infinite}
 .hero-slide.s2{background-image:url('hero-gold.jpg');animation:heroB 8s ease-in-out infinite}
 @keyframes heroA{0%{opacity:1;transform:scale(1.0)}42%{opacity:1;transform:scale(1.045)}50%{opacity:0;transform:scale(1.05)}92%{opacity:0;transform:scale(1.0)}100%{opacity:1;transform:scale(1.0)}}
