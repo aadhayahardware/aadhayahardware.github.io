@@ -30,60 +30,42 @@ a{color:inherit;text-decoration:none}
 section{position:relative}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
-
-/* ---------- HEADER ---------- */
-header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s}
-.nav{display:flex;align-items:center;justify-content:space-between;margin:14px auto;padding:10px 18px;border:1px solid var(--line);border-radius:60px;background:rgba(12,12,14,.55);backdrop-filter:blur(14px);max-width:1180px}
-.nav .brand{display:flex;align-items:center;gap:10px}
-.nav .brand img{height:34px;width:auto}
-.nav .brand b{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:2px}
-.nav .links{display:flex;gap:30px}
-.nav .links a{font-size:12.5px;letter-spacing:1px;color:var(--mut);transition:.25s;position:relative}
-.nav .links a:hover{color:var(--txt)}
-.nav .links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:.3s}
-.nav .links a:hover::after{width:100%}
-.btn{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;letter-spacing:1px;padding:10px 20px;border-radius:40px;cursor:pointer;border:1px solid transparent;transition:.3s;font-family:var(--sans)}
-.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1405;font-weight:500}
-.btn-gold:hover{box-shadow:0 8px 30px rgba(200,168,74,.35);transform:translateY(-2px)}
-.btn-ghost{border-color:var(--line);color:var(--txt)}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
-.burger span{width:22px;height:1.5px;background:var(--txt);transition:.3s}
-.mnav{position:fixed;inset:0;z-index:55;background:rgba(8,8,10,.97);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;opacity:0;pointer-events:none;transition:.4s}
-.mnav.open{opacity:1;pointer-events:auto}
-.mnav a{font-family:var(--serif);font-size:30px;color:var(--txt)}
-.mnav a:hover{color:var(--gold2)}
-
-/* ---------- HERO ---------- */
-.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 22px 70px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,#1a1710 0%,#0a0a0b 60%);z-index:0}
-.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 65%,rgba(46,127,224,.10),transparent 70%)}
-.hero-inner{position:relative;z-index:2;width:100%}
+/* ---------- HERO (cinematic dark · dual-photo) ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;text-align:left;padding:120px 0 70px;overflow:hidden}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:62% center;opacity:0;will-change:transform,opacity}
+.hero-slide.s1{background-image:url('hero-black.jpg');animation:heroA 16s ease-in-out infinite}
+.hero-slide.s2{background-image:url('hero-gold.jpg');animation:heroB 16s ease-in-out infinite}
+@keyframes heroA{0%{opacity:1;transform:scale(1.05)}42%{opacity:1;transform:scale(1.12)}50%{opacity:0;transform:scale(1.13)}92%{opacity:0;transform:scale(1.02)}100%{opacity:1;transform:scale(1.05)}}
+@keyframes heroB{0%{opacity:0;transform:scale(1.03)}42%{opacity:0;transform:scale(1.07)}50%{opacity:1;transform:scale(1.08)}92%{opacity:1;transform:scale(1.14)}100%{opacity:0;transform:scale(1.15)}}
+.hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(100deg,rgba(10,10,11,.92) 0%,rgba(10,10,11,.62) 40%,rgba(10,10,11,.15) 66%,rgba(10,10,11,.5) 100%)}
+.hero-vig{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(80% 80% at 62% 45%,transparent 40%,rgba(0,0,0,.6))}
+.hero-sweep{position:absolute;top:-30%;bottom:-30%;left:-42%;width:34%;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent,rgba(230,206,132,.0) 30%,rgba(230,206,132,.22) 50%,rgba(255,244,205,.34) 55%,rgba(230,206,132,.0) 72%,transparent);filter:blur(6px);mix-blend-mode:screen;transform:skewX(-12deg);animation:hsweep 7s ease infinite}
+@keyframes hsweep{0%{left:-42%}55%{left:120%}100%{left:120%}}
+.hero-inner{position:relative;z-index:3;max-width:640px}
 .hero .eyebrow{margin-bottom:18px}
-.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,8vw,86px);line-height:1.02;letter-spacing:.5px}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,8.6vw,92px);line-height:1.02;letter-spacing:.5px;text-shadow:0 2px 34px rgba(0,0,0,.45)}
 .hero h1 em{font-style:italic;color:var(--gold2)}
-.hero .sub{color:var(--mut);font-size:clamp(13px,2.2vw,16px);letter-spacing:.5px;margin:22px auto 0;max-width:520px}
-.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
-.hero-prod{position:relative;z-index:1;margin:18px auto 0;width:min(560px,82vw);filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
-.ghostword{position:absolute;z-index:0;top:46%;left:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-weight:700;font-size:clamp(80px,22vw,260px);letter-spacing:6px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.10);white-space:nowrap;pointer-events:none}
-.hero-stage{position:relative;margin-top:34px}
-.floats{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;max-width:980px;margin:0 auto;position:relative;z-index:1;transition:transform .25s ease-out}
-.fcard{width:min(224px,43vw);animation:floaty 5.6s ease-in-out infinite}
-.fcard:nth-child(2){animation-delay:.7s}.fcard:nth-child(3){animation-delay:1.4s}.fcard:nth-child(4){animation-delay:2.1s}
-.fcard img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:14px;border:1px solid rgba(200,168,74,.2);box-shadow:0 22px 48px rgba(0,0,0,.55);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s;cursor:pointer}
-.fcard img:hover{transform:scale(1.05) translateY(-6px);box-shadow:0 36px 74px rgba(0,0,0,.72)}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+.hero .sub{color:#cfccc4;font-size:clamp(13px,2.2vw,16px);letter-spacing:.5px;margin:22px 0 0;max-width:460px}
+.hero .cta{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;margin-top:34px}
 @keyframes heroReveal{from{opacity:0;filter:blur(10px);transform:translateY(26px)}to{opacity:1;filter:blur(0);transform:none}}
-.hero .eyebrow,.hero h1 .hw,.hero .sub,.hero .cta,.hero .floats{opacity:0;animation:heroReveal .95s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .eyebrow,.hero h1 .hw,.hero .sub,.hero .cta{opacity:0;animation:heroReveal .95s cubic-bezier(.2,.7,.2,1) forwards}
 .hero h1 .hw{display:inline-block}
-.hero .eyebrow{animation-delay:.05s}.hero .sub{animation-delay:.85s}.hero .cta{animation-delay:1s}.hero .floats{animation-delay:1.15s}
+.hero .eyebrow{animation-delay:.05s}.hero .sub{animation-delay:.85s}.hero .cta{animation-delay:1s}
+@media(max-width:860px){
+ .hero{text-align:center;padding:130px 0 90px}
+ .hero-inner{max-width:none;margin:0 auto}
+ .hero-slide{background-position:center 30%}
+ .hero-scrim{background:linear-gradient(180deg,rgba(10,10,11,.5) 0%,rgba(10,10,11,.32) 42%,rgba(10,10,11,.9) 100%)}
+ .hero .sub{margin-left:auto;margin-right:auto}
+ .hero .cta{justify-content:center}
+}
 .sec-head h2{position:relative}
 .sec-head h2::after{content:"";display:block;width:0;height:2px;margin:16px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent);transition:width 1.1s cubic-bezier(.2,.7,.2,1) .25s}
 .sec-head.in h2::after{width:90px}
 .scrollcue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;font-size:10px;letter-spacing:3px;color:var(--mut);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
 .scrollcue i{width:1px;height:36px;background:linear-gradient(var(--gold),transparent);animation:cue 1.8s infinite}
 @keyframes cue{0%{opacity:.2;transform:scaleY(.4)}50%{opacity:1}100%{opacity:.2;transform:scaleY(.4)}}
-
 /* ---------- SECTION TITLES ---------- */
 .sec{padding:clamp(70px,11vw,140px) 0}
 .sec-head{text-align:center;margin-bottom:54px}
@@ -210,10 +192,10 @@ footer .small{color:#67645d;font-size:12px;margin-top:18px;line-height:1.8}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media(prefers-reduced-motion:reduce){.hero .eyebrow,.hero h1 .hw,.hero .sub,.hero .cta,.hero .floats{opacity:1!important}}
+@media(prefers-reduced-motion:reduce){.hero-slide.s1{opacity:1!important}.hero-slide.s2{opacity:0!important}.hero-sweep{display:none!important}}
 </style>
 </head>
 <body>
-
 <!-- HEADER -->
 <header id="hdr">
  <nav class="nav wrap">
@@ -237,31 +219,28 @@ footer .small{color:#67645d;font-size:12px;margin-top:18px;line-height:1.8}
  <a href="#contact">Contact</a>
  <a class="btn btn-gold" href="https://order.aadhayahardware.com" target="_blank" rel="noopener">Order Now</a>
 </div>
-
 <!-- HERO -->
 <section class="hero" id="top">
- <div class="hero-bg"></div>
- <div class="hero-inner">
-  <div class="eyebrow">Aadhaya · Locks &amp; Fittings</div>
-  <h1 class="serif"><span class="hw" style="animation-delay:.15s">Crafting</span> <span class="hw" style="animation-delay:.28s">Luxury</span><br><em><span class="hw" style="animation-delay:.44s">in</span> <span class="hw" style="animation-delay:.57s">Every</span> <span class="hw" style="animation-delay:.7s">Detail</span></em></h1>
-  <p class="sub">Premium stainless-steel hardware — where precision meets elegance, redefining fittings for modern living.</p>
-  <div class="cta">
-   <a class="btn btn-gold" href="#collections">Explore Collections</a>
-   <a class="btn btn-ghost" href="#catalogue">Open Catalogue</a>
-  </div>
-  <div class="hero-stage">
-   <div class="ghostword">AADHAYA</div>
-   <div class="floats">
-    <div class="fcard"><img src="zp1.jpg" alt="Lever handles" loading="lazy"></div>
-    <div class="fcard"><img src="zp2.jpg" alt="Cabinet knobs" loading="lazy"></div>
-    <div class="fcard"><img src="zp3.jpg" alt="Mortise levers" loading="lazy"></div>
-    <div class="fcard"><img src="zp4.jpg" alt="Mortise handle set" loading="lazy"></div>
+ <div class="hero-media" aria-hidden="true">
+  <div class="hero-slide s1"></div>
+  <div class="hero-slide s2"></div>
+ </div>
+ <div class="hero-scrim" aria-hidden="true"></div>
+ <div class="hero-vig" aria-hidden="true"></div>
+ <div class="hero-sweep" aria-hidden="true"></div>
+ <div class="wrap">
+  <div class="hero-inner">
+   <div class="eyebrow">Aadhaya · Locks &amp; Fittings</div>
+   <h1 class="serif"><span class="hw" style="animation-delay:.15s">Crafting</span> <span class="hw" style="animation-delay:.28s">Luxury</span><br><em><span class="hw" style="animation-delay:.44s">in</span> <span class="hw" style="animation-delay:.57s">Every</span> <span class="hw" style="animation-delay:.7s">Detail</span></em></h1>
+   <p class="sub">Premium stainless-steel hardware — where precision meets elegance, redefining fittings for modern living.</p>
+   <div class="cta">
+    <a class="btn btn-gold" href="#collections">Explore Collections</a>
+    <a class="btn btn-ghost" href="#catalogue">Open Catalogue</a>
    </div>
   </div>
  </div>
  <a class="scrollcue" href="#magic">Scroll<i></i></a>
 </section>
-
 <!-- MAGIC FINISH -->
 <section class="sec magic" id="magic">
  <div class="wrap">
