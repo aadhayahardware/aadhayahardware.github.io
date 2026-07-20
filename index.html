@@ -30,6 +30,12 @@ a{color:inherit;text-decoration:none}
 section{position:relative}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
+/* ---- dynamic v2: stagger + progress ---- */
+#goldbar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#8a6d2c,var(--gold),#f4dc9a);z-index:99;box-shadow:0 0 12px rgba(200,168,74,.55);pointer-events:none}
+.stag{opacity:0;transform:translateY(30px) scale(.98);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.stag.in{opacity:1;transform:none}
+.hero-inner{will-change:transform,opacity}
+@media (prefers-reduced-motion:reduce){.reveal,.stag{opacity:1!important;transform:none!important;transition:none!important}#goldbar{display:none}.hero-inner{transform:none!important;opacity:1!important}}
 /* ---------- HEADER ---------- */
 header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s}
 .nav{display:flex;align-items:center;justify-content:space-between;margin:14px auto;padding:10px 18px;border:1px solid var(--line);border-radius:60px;background:rgba(12,12,14,.55);backdrop-filter:blur(14px);max-width:1180px}
@@ -220,6 +226,52 @@ footer .small{color:#67645d;font-size:12px;margin-top:18px;line-height:1.8}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media(prefers-reduced-motion:reduce){.hero .eyebrow,.hero h1 .hw,.hero .sub,.hero .cta,.hero .floats{opacity:1!important}}
 @media(prefers-reduced-motion:reduce){.hero-slide.s1{opacity:1!important}.hero-slide.s2{opacity:0!important}.hero-sweep{display:none!important}}
+/* ═══ DYNAMIC V2 · Steps 2–7 ═══ */
+/* Step 2: gold shimmer on hero italic + floating dust */
+.hero h1 em{background:linear-gradient(110deg,var(--gold2) 25%,#fff3cb 50%,var(--gold2) 75%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:goldshine 5s ease-in-out 1.6s infinite}
+@keyframes goldshine{0%,100%{background-position:170% 0}50%{background-position:-70% 0}}
+.hero-dust{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.hero-dust i{position:absolute;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle,rgba(244,220,154,.9),rgba(200,168,74,0) 70%);filter:blur(.5px);animation:dust linear infinite;opacity:0}
+@keyframes dust{0%{transform:translateY(20px);opacity:0}12%{opacity:.85}85%{opacity:.35}100%{transform:translateY(-92vh) translateX(24px);opacity:0}}
+/* Step 3: finish switcher — gold ring, pop, tilt, name fade */
+.sw.on{border-color:var(--gold);transform:scale(1.14);box-shadow:0 0 0 3px rgba(200,168,74,.22),0 0 20px rgba(200,168,74,.5)}
+.vit{perspective:900px}
+.vit-stage{transition:transform .35s ease;transform-style:preserve-3d}
+@keyframes finpop{0%{transform:translateY(-50%) scale(.955)}60%{transform:translateY(-50%) scale(1.018)}100%{transform:translateY(-50%) scale(1)}}
+.vit-stage img.pop{animation:finpop .6s cubic-bezier(.2,.7,.2,1)}
+.fin-name{transition:opacity .25s,transform .25s}
+.fin-name.swap{opacity:0;transform:translateY(8px)}
+/* Step 4: collection cards — lift + gold glow */
+.ccard{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s}
+.ccard:hover{transform:translateY(-8px);border-color:rgba(200,168,74,.5);box-shadow:0 24px 54px rgba(0,0,0,.6),0 0 34px rgba(200,168,74,.16)}
+.ccard:active{transform:translateY(-3px) scale(.985)}
+.ccard:hover img{filter:brightness(1.06)}
+/* Step 5: gold marquee strip */
+.marquee{overflow:hidden;border-top:1px solid rgba(200,168,74,.25);border-bottom:1px solid rgba(200,168,74,.25);background:linear-gradient(180deg,#0d0c0f,#0a0a0b);padding:16px 0;position:relative}
+.mq-track{display:flex;gap:0;width:max-content;animation:mq 34s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-track span{font-family:var(--serif);font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold2);white-space:nowrap;padding:0 26px;display:flex;align-items:center;gap:26px}
+.mq-track span::after{content:"✦";font-size:11px;color:rgba(200,168,74,.55)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* Step 6: gold cursor glow (desktop only) */
+#cursorGlow{display:none}
+@media(hover:hover) and (pointer:fine){
+ #cursorGlow{display:block;position:fixed;top:0;left:0;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;background:radial-gradient(circle,rgba(200,168,74,.13),rgba(200,168,74,.05) 40%,transparent 70%);pointer-events:none;z-index:98;mix-blend-mode:screen;transition:opacity .4s;will-change:transform}
+}
+/* Step 7: testimonial carousel */
+.tstm{background:linear-gradient(180deg,#0a0a0b,#0e0d11 50%,#0a0a0b)}
+.tstm-viewport{max-width:720px;margin:0 auto;position:relative;min-height:220px}
+@media(max-width:560px){.tstm-viewport{min-height:280px}}
+.tslide{position:absolute;inset:0;opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);pointer-events:none;text-align:center;padding:0 12px}
+.tslide.on{opacity:1;transform:none;pointer-events:auto}
+.tslide .q{font-family:var(--serif);font-style:italic;font-size:clamp(18px,3vw,24px);line-height:1.5;color:#e8e4da}
+.tslide .q::before{content:"“";color:var(--gold2);font-size:1.4em}
+.tslide .q::after{content:"”";color:var(--gold2);font-size:1.4em}
+.tslide .who{margin-top:20px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold2)}
+.tdots{display:flex;gap:10px;justify-content:center;margin-top:28px}
+.tdots i{width:8px;height:8px;border-radius:50%;background:rgba(200,168,74,.25);cursor:pointer;transition:.3s}
+.tdots i.on{background:var(--gold);transform:scale(1.3);box-shadow:0 0 10px rgba(200,168,74,.6)}
+@media (prefers-reduced-motion:reduce){.hero h1 em{animation:none}.hero-dust,.mq-track{display:none}#cursorGlow{display:none!important}}
 </style>
 </head>
 <body>
@@ -267,8 +319,13 @@ footer .small{color:#67645d;font-size:12px;margin-top:18px;line-height:1.8}
    </div>
   </div>
  </div>
+ <div class="hero-dust" aria-hidden="true" id="dust"></div>
  <a class="scrollcue" href="#magic">Scroll<i></i></a>
 </section>
+<!-- GOLD MARQUEE -->
+<div class="marquee" aria-hidden="true">
+ <div class="mq-track" id="mqTrack"></div>
+</div>
 <!-- MAGIC FINISH -->
 <section class="sec magic" id="magic">
  <div class="wrap">
@@ -329,6 +386,22 @@ footer .small{color:#67645d;font-size:12px;margin-top:18px;line-height:1.8}
    </div>
   </div>
   <div class="story-img reveal"><img src="pack.jpg" alt="AADHAYA premium packaging"></div>
+ </div>
+</section>
+
+<!-- TESTIMONIALS (⚠️ REPLACE placeholder quotes with real dealer words before going live) -->
+<section class="sec tstm" id="testimonials" style="display:none"><!-- REMOVE style="display:none" once real dealer quotes are added -->
+ <div class="wrap">
+  <div class="sec-head reveal">
+   <div class="eyebrow">Dealer Voices</div>
+   <h2 class="serif">Trusted by 700+ Dealers</h2>
+  </div>
+  <div class="tstm-viewport reveal" id="tViewport">
+   <div class="tslide on"><div class="q">Sample testimonial — replace with a real dealer's words about finish quality and service.</div><div class="who">Dealer Name · City</div></div>
+   <div class="tslide"><div class="q">Sample testimonial — replace with a real dealer's words about fast dispatch and packaging.</div><div class="who">Dealer Name · City</div></div>
+   <div class="tslide"><div class="q">Sample testimonial — replace with a real dealer's words about repeat customer demand.</div><div class="who">Dealer Name · City</div></div>
+  </div>
+  <div class="tdots" id="tDots"></div>
  </div>
 </section>
 
@@ -411,8 +484,10 @@ function setFin(i){
  const f=FIN[i];
  const show=tgl?fB:fA, hide=tgl?fA:fB;
  show.src=f.img; show.style.filter=f.f; show.style.opacity=1; hide.style.opacity=0;
+ show.classList.remove('pop');void show.offsetWidth;show.classList.add('pop');
  tgl=!tgl; curFin=i;
- finName.textContent=f.k;
+ finName.classList.add('swap');
+ setTimeout(function(){finName.textContent=f.k;finName.classList.remove('swap');},240);
  [...swWrap.children].forEach((c,j)=>c.classList.toggle('on',j===i));
  stage.classList.remove('sweep');void stage.offsetWidth;stage.classList.add('sweep');
 }
@@ -491,6 +566,45 @@ document.getElementById('fbPrev').onclick=()=>{pf?pf.flipPrev():fbFb.scrollBy({l
 document.getElementById('fbNext').onclick=()=>{pf?pf.flipNext():fbFb.scrollBy({left:innerWidth*0.7,behavior:'smooth'})};
 document.getElementById('fbMute').onclick=function(){soundOn=!soundOn;this.textContent=soundOn?'🔊':'🔇';if(soundOn){try{if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();actx.resume()}catch(e){}}};
 addEventListener('keydown',e=>{if(!fbov.classList.contains('open'))return;if(e.key==='Escape')closeBook();if(e.key==='ArrowLeft'&&pf)pf.flipPrev();if(e.key==='ArrowRight'&&pf)pf.flipNext()});
+
+/* ---- dynamic v2: gold progress bar ---- */
+var gb=document.createElement('div');gb.id='goldbar';document.body.appendChild(gb);
+/* ---- dynamic v2: hero scroll parallax ---- */
+var _hIn=document.querySelector('.hero-inner');
+var _rmq=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+window.addEventListener('scroll',function(){
+ var y=window.scrollY||document.documentElement.scrollTop||0;
+ var d=document.documentElement;var max=d.scrollHeight-window.innerHeight;
+ gb.style.width=(max>0?(y/max*100):0)+'%';
+ if(!_rmq&&_hIn){
+  if(y<window.innerHeight){_hIn.style.transform='translateY('+(y*0.28).toFixed(1)+'px)';_hIn.style.opacity=Math.max(0,1-y/(window.innerHeight*0.7)).toFixed(3);}
+  else{_hIn.style.opacity=0;}
+ }
+},{passive:true});
+/* ---- dynamic v2: staggered reveals ---- */
+var _io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');_io2.unobserve(e.target)}})},{threshold:.1});
+function _stag(sel,step){document.querySelectorAll(sel).forEach(function(p){Array.prototype.forEach.call(p.children,function(c,i){c.classList.add('stag');c.style.transitionDelay=(i*(step||90))+'ms';_io2.observe(c);});});}
+_stag('#grid',100);_stag('#shelf',110);_stag('.stats',120);_stag('#swatches',70);
+/* ═══ DYNAMIC V2 · Steps 2–7 JS ═══ */
+/* Step 2: hero gold dust */
+(function(){var d=document.getElementById('dust');if(!d||_rmq)return;for(var i=0;i<14;i++){var s=document.createElement('i');s.style.left=(Math.random()*100)+'%';s.style.bottom=(Math.random()*30)+'%';s.style.animationDuration=(9+Math.random()*10)+'s';s.style.animationDelay=(Math.random()*9)+'s';s.style.transform='scale('+(0.5+Math.random()).toFixed(2)+')';d.appendChild(s);}})();
+/* Step 5: marquee population */
+(function(){var t=document.getElementById('mqTrack');if(!t)return;var items=['700+ Dealers Across India','130+ Premium Products','6 Signature Finishes','Since 2012 · Rajkot','Premium Stainless Steel','Factory-Direct Pricing'];var html='';for(var r=0;r<2;r++)items.forEach(function(x){html+='<span>'+x+'</span>';});t.innerHTML=html;})();
+/* Step 3: subtle 3D tilt on finish stage (desktop) */
+(function(){var st=document.getElementById('stage');if(!st||_rmq||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+ st.addEventListener('pointermove',function(e){var r=st.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;st.style.transform='rotateY('+(x*7).toFixed(2)+'deg) rotateX('+(-y*5).toFixed(2)+'deg)';});
+ st.addEventListener('pointerleave',function(){st.style.transform='';});})();
+/* Step 6: gold cursor glow (desktop) */
+(function(){if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;var g=document.createElement('div');g.id='cursorGlow';g.style.opacity='0';document.body.appendChild(g);var tx=0,ty=0,cx=0,cy=0,vis=false;
+ addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY;if(!vis){vis=true;g.style.opacity='1';}});
+ (function loop(){cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;g.style.transform='translate('+cx.toFixed(1)+'px,'+cy.toFixed(1)+'px)';requestAnimationFrame(loop);})();})();
+/* Step 7: testimonial carousel */
+(function(){var vp=document.getElementById('tViewport'),dots=document.getElementById('tDots');if(!vp||!dots)return;var slides=vp.querySelectorAll('.tslide'),cur=0,timer=null;
+ slides.forEach(function(_,i){var d=document.createElement('i');if(i===0)d.className='on';d.onclick=function(){go(i);restart();};dots.appendChild(d);});
+ function go(i){slides[cur].classList.remove('on');dots.children[cur].classList.remove('on');cur=i;slides[cur].classList.add('on');dots.children[cur].classList.add('on');}
+ function next(){go((cur+1)%slides.length);}
+ function restart(){clearInterval(timer);timer=setInterval(next,5200);}
+ restart();})();
 </script>
 </body>
 </html>
