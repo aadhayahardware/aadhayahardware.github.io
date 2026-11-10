@@ -273,6 +273,7 @@ footer .small{color:#67645d;font-size:12px;margin-top:18px;line-height:1.8}
 .tdots i.on{background:var(--gold);transform:scale(1.3);box-shadow:0 0 10px rgba(200,168,74,.6)}
 @media (prefers-reduced-motion:reduce){.hero h1 em{animation:none}.hero-dust,.mq-track{display:none}#cursorGlow{display:none!important}}
 </style>
+<style>#film3d{position:relative;height:360vh;background:#0a0a0b}#film3d .f-lead{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 max(24px,7vw);max-width:34rem}@media (max-width:760px){#film3d{height:320vh}}</style>
 </head>
 <body>
 <!-- HEADER -->
@@ -298,32 +299,20 @@ footer .small{color:#67645d;font-size:12px;margin-top:18px;line-height:1.8}
  <a href="#contact">Contact</a>
  <a class="btn btn-gold" href="https://order.aadhayahardware.com" target="_blank" rel="noopener">Order Now</a>
 </div>
-<!-- HERO -->
-<section class="hero" id="top">
- <div class="hero-media" aria-hidden="true">
-  <div class="hero-slide s1"></div>
-  <div class="hero-slide s2"></div>
- </div>
- <div class="hero-scrim" aria-hidden="true"></div>
- <div class="hero-vig" aria-hidden="true"></div>
- <div class="hero-sweep" aria-hidden="true"></div>
- <div class="wrap">
-  <div class="hero-inner">
-   <div class="eyebrow">Aadhaya · Locks &amp; Fittings</div>
-   <h1 class="serif"><span class="hw" style="animation-delay:.15s">Crafting</span> <span class="hw" style="animation-delay:.28s">Luxury</span><br><em><span class="hw" style="animation-delay:.44s">in</span> <span class="hw" style="animation-delay:.57s">Every</span> <span class="hw" style="animation-delay:.7s">Detail</span></em></h1>
-   <p class="sub">Premium stainless-steel hardware — where precision meets elegance, redefining fittings for modern living.</p>
-   <div class="cta">
-    <a class="btn btn-gold" href="https://order.aadhayahardware.com" target="_blank" rel="noopener">Shop Now</a>
-    <a class="btn btn-ghost" href="#collections">Explore Collections</a>
-    <a class="btn btn-ghost" href="#catalogue">Open Catalogue</a>
-   </div>
+<!-- LANDING FILM (film2.js) — the scroll film is the landing page -->
+<section id="top">
+<div id="film3d">
+ <div class="f-lead">
+  <div class="f-eye">Aadhaya · Locks &amp; Fittings</div>
+  <h1>Crafting Luxury<br><em>in Every Detail</em></h1>
+  <p>Premium stainless-steel hardware — where precision meets elegance, redefining fittings for modern living.</p>
+  <div class="f-cta">
+   <a class="btn btn-gold" href="https://order.aadhayahardware.com" target="_blank" rel="noopener">Shop Now</a>
+   <a class="btn btn-ghost" href="#collections">Explore Collections</a>
   </div>
  </div>
- <div class="hero-dust" aria-hidden="true" id="dust"></div>
- <a class="scrollcue" href="#magic">Scroll<i></i></a>
+</div>
 </section>
-<!-- 3D SCROLL FILM (film.js) -->
-<div id="film3d"></div>
 <!-- GOLD MARQUEE -->
 <div class="marquee" aria-hidden="true">
  <div class="mq-track" id="mqTrack"></div>
@@ -608,6 +597,6 @@ _stag('#grid',100);_stag('#shelf',110);_stag('.stats',120);_stag('#swatches',70)
  function restart(){clearInterval(timer);timer=setInterval(next,5200);}
  restart();})();
 </script>
-<script src="film.js?v=1" defer></script>
+<script src="film2.js?v=1" defer></script>
 </body>
 </html>
